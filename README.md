@@ -1,3 +1,5 @@
+# theme-codepty
+Tema WordPress y páginas de CodePTY, agencia de presencia digital
 
 <!-- TREE:START -->
 ├── assets
@@ -9,4 +11,3 @@
 │   │   # Carga los assets principales del theme.
 └── index.php
 <!-- TREE:END -->
-
