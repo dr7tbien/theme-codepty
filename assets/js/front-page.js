@@ -26,3 +26,29 @@ if (menuToggle && siteNavigation) {
         }
     });
 }
+
+document.addEventListener('click', (event) => {
+    const button = event.target.closest('.copy-button');
+
+    if (!button) {
+        return;
+    }
+
+    const target = document.getElementById(button.getAttribute('data-copy-target'));
+
+    if (!target) {
+        return;
+    }
+
+    navigator.clipboard.writeText(target.innerText.trim()).then(() => {
+        const originalLabel = button.textContent;
+
+        button.textContent = '✓ Copiado';
+        button.classList.add('is-copied');
+
+        setTimeout(() => {
+            button.textContent = originalLabel;
+            button.classList.remove('is-copied');
+        }, 1800);
+    });
+});

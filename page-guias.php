@@ -30,6 +30,34 @@
     <section class="guides-content" aria-label="Categorías de guías">
         <div class="container guide-grid">
             <article class="card guide-card">
+                <span class="guide-status guide-status--ready">Cuentas</span>
+                <h2>Crear tu WhatsApp Business</h2>
+                <p>Cómo instalar la app, crear tu perfil de empresa y darnos acceso.</p>
+                <a class="button small primary" href="<?php echo esc_url(home_url('/guias/whatsapp-business/')); ?>">Ver guía</a>
+            </article>
+
+            <article class="card guide-card">
+                <span class="guide-status guide-status--ready">Cuentas</span>
+                <h2>Crear tu página de Facebook</h2>
+                <p>Cómo crear la página de empresa (no el perfil personal) y darnos acceso admin.</p>
+                <a class="button small primary" href="<?php echo esc_url(home_url('/guias/facebook/')); ?>">Ver guía</a>
+            </article>
+
+            <article class="card guide-card">
+                <span class="guide-status guide-status--ready">Cuentas</span>
+                <h2>Crear tu Instagram profesional</h2>
+                <p>Cómo pasar a cuenta profesional, vincularla a Facebook y darnos acceso.</p>
+                <a class="button small primary" href="<?php echo esc_url(home_url('/guias/instagram/')); ?>">Ver guía</a>
+            </article>
+
+            <article class="card guide-card">
+                <span class="guide-status guide-status--ready">Cuentas</span>
+                <h2>Crear tu Google Business Profile</h2>
+                <p>Cómo crear y verificar tu perfil para aparecer en Google Maps y búsquedas locales.</p>
+                <a class="button small primary" href="<?php echo esc_url(home_url('/guias/google-business/')); ?>">Ver guía</a>
+            </article>
+
+            <article class="card guide-card">
                 <span class="guide-status">Próximamente</span>
                 <h2>Primeros pasos</h2>
                 <p>Lo esencial para comenzar a trabajar con tu nueva página web.</p>
@@ -49,6 +77,8 @@
         </div>
     </section>
 </main>
+
+<?php get_template_part('template-parts/site-footer'); ?>
 
 <?php wp_footer(); ?>
 </body>
