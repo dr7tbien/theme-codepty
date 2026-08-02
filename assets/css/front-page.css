@@ -71,7 +71,7 @@ section {
 .site-logo img {
     display: block;
     width: auto;
-    height: 48px;
+    height: 35px;
 }
 
 .site-navigation {
@@ -85,6 +85,7 @@ section {
     color: var(--dark);
     font-weight: 750;
     text-decoration: none;
+    font-size: 1.4rem;
 }
 
 .site-navigation a:hover,
