@@ -166,6 +166,41 @@ function codepty_create_workflow_pages() {
 add_action('init', 'codepty_create_workflow_pages');
 
 /**
+ * Crea la nueva guía interna "Procedimiento Presencia Web GPT".
+ * Se publica técnicamente para que el rol personalizado pueda resolverla,
+ * pero todo acceso queda protegido por codepty_guard_private_pages().
+ *
+ * @return void
+ */
+function codepty_create_presence_web_gpt_page() {
+    if (get_option('codepty_content_version', 0) >= 3) {
+        return;
+    }
+
+    $page = get_page_by_path('procedimiento-presencia-web-gpt', OBJECT, 'page');
+
+    if (!$page) {
+        $page = wp_insert_post(
+            array(
+                'post_title'   => 'Procedimiento Presencia Web GPT',
+                'post_name'    => 'procedimiento-presencia-web-gpt',
+                'post_status'  => 'publish',
+                'post_type'    => 'page',
+                'post_content' => '',
+            )
+        );
+    }
+
+    if ($page && !is_wp_error($page)) {
+        $page_id = $page instanceof WP_Post ? $page->ID : (int) $page;
+
+        update_post_meta($page_id, '_codepty_internal_page', '1');
+        update_option('codepty_content_version', 3);
+    }
+}
+add_action('init', 'codepty_create_presence_web_gpt_page');
+
+/**
  * Comprueba si el usuario actual pertenece al equipo interno de CodePTY
  * (Administrador o rol "Equipo CodePTY").
  *
@@ -189,12 +224,17 @@ function codepty_user_is_team_member() {
  * @return void
  */
 function codepty_guard_private_pages() {
-    if (get_query_var('pagename') !== 'procedimiento-presencia-web') {
+    $protected_pages = array(
+        'procedimiento-presencia-web',
+        'procedimiento-presencia-web-gpt',
+    );
+
+    if (!is_page($protected_pages)) {
         return;
     }
 
     if (!is_user_logged_in()) {
-        wp_safe_redirect(wp_login_url(home_url('/procedimiento-presencia-web/')));
+        wp_safe_redirect(wp_login_url(get_permalink()));
         exit;
     }
 
@@ -204,3 +244,64 @@ function codepty_guard_private_pages() {
     }
 }
 add_action('template_redirect', 'codepty_guard_private_pages', 1);
+
+/**
+ * Impide que el contenido interno se entregue mediante la API REST.
+ *
+ * @param WP_REST_Response $response Respuesta preparada.
+ * @param WP_Post          $post     Página solicitada.
+ * @return WP_REST_Response|WP_Error
+ */
+function codepty_guard_internal_page_rest_response($response, $post) {
+    if ('1' !== get_post_meta($post->ID, '_codepty_internal_page', true)) {
+        return $response;
+    }
+
+    if (!codepty_user_is_team_member()) {
+        return new WP_Error(
+            'codepty_forbidden',
+            'No tienes permiso para consultar este contenido.',
+            array('status' => is_user_logged_in() ? 403 : 401)
+        );
+    }
+
+    return $response;
+}
+add_filter('rest_prepare_page', 'codepty_guard_internal_page_rest_response', 10, 2);
+
+/**
+ * Excluye las páginas internas de búsquedas públicas del sitio.
+ *
+ * @param WP_Query $query Consulta actual.
+ * @return void
+ */
+function codepty_hide_internal_pages_from_search($query) {
+    if (is_admin() || !$query->is_main_query() || !$query->is_search()) {
+        return;
+    }
+
+    $meta_query   = (array) $query->get('meta_query');
+    $meta_query[] = array(
+        'key'     => '_codepty_internal_page',
+        'compare' => 'NOT EXISTS',
+    );
+
+    $query->set('meta_query', $meta_query);
+}
+add_action('pre_get_posts', 'codepty_hide_internal_pages_from_search');
+
+/**
+ * Excluye las páginas internas del sitemap nativo de WordPress.
+ *
+ * @param array $args Argumentos de la consulta del sitemap.
+ * @return array
+ */
+function codepty_hide_internal_pages_from_sitemap($args) {
+    $args['meta_query'][] = array(
+        'key'     => '_codepty_internal_page',
+        'compare' => 'NOT EXISTS',
+    );
+
+    return $args;
+}
+add_filter('wp_sitemaps_posts_query_args', 'codepty_hide_internal_pages_from_sitemap');

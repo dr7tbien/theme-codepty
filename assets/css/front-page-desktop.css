@@ -36,6 +36,30 @@
         gap: 22px;
     }
 
+    .procedure-grid--2,
+    .channel-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .procedure-grid--3 {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    .intake-columns {
+        padding: 24px 26px;
+        grid-template-columns: minmax(0, 1.4fr) minmax(260px, 0.8fr);
+        gap: 42px;
+    }
+
+    .procedure-checklist,
+    .final-checklist {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .workflow-list {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
     .included-grid {
         grid-template-columns: repeat(2, minmax(0, 1fr));
         gap: 18px;
