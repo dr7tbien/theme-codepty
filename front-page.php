@@ -22,30 +22,31 @@
         <div class="container grid two-cols">
 
             <article class="card offer">
-                <p class="eyebrow">CodePTY · Webs rápidas para negocios</p>
+                <p class="eyebrow">Todo para poner tu negocio en Internet</p>
 
-                <h1>Páginas web para captar clientes en Panamá</h1>
+                <h1>Página web para tu negocio en Panamá</h1>
 
                 <p class="subtitle">
-                    Creamos landing pages claras, rápidas y preparadas para que tus clientes
-                    te contacten por WhatsApp, Google, Facebook e Instagram.
+                    Creamos tu página web y preparamos tus principales canales digitales para
+                    que tu negocio se vea profesional y tus clientes puedan encontrarte y contactarte fácilmente.
                 </p>
 
                 <div class="price">
-                    <span>Desde</span>
-                    <strong>$350</strong>
+                    <span>Paquete completo</span>
+                    <strong>$200</strong>
+                    <span>Pago único</span>
                 </div>
 
                 <ul class="checklist">
-                    <li>Diseño móvil incluido</li>
-                    <li>Botón WhatsApp visible</li>
-                    <li>Formulario de contacto</li>
-                    <li>SEO básico inicial</li>
+                    <li>Página web para tu negocio</li>
+                    <li>Página profesional de Facebook</li>
+                    <li>Perfil de empresa en Instagram</li>
+                    <li>Linktree con todos tus enlaces</li>
+                    <li>Configuración de WhatsApp Business</li>
                 </ul>
 
                 <div class="actions">
-                    <a class="button primary" href="#contacto">Pedir cotización</a>
-                    <a class="button secondary" href="#servicios">Ver servicios</a>
+                    <a class="button primary" href="#servicios">Más información</a>
                 </div>
             </article>
 
