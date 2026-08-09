@@ -8,6 +8,16 @@ if (!defined('ABSPATH')) {
 }
 
 /**
+ * codepty_theme_setup - Activa las funciones estándar de documento del tema.
+ *
+ * @return void
+ */
+function codepty_theme_setup() {
+    add_theme_support('title-tag');
+}
+add_action('after_setup_theme', 'codepty_theme_setup');
+
+/**
  * codepty_enqueue_assets - Carga los assets principales del theme.
  *
  * @return void
@@ -305,3 +315,228 @@ function codepty_hide_internal_pages_from_sitemap($args) {
     return $args;
 }
 add_filter('wp_sitemaps_posts_query_args', 'codepty_hide_internal_pages_from_sitemap');
+
+/**
+ * codepty_create_service_pages - Crea las páginas de detalle enlazadas desde la portada.
+ *
+ * @return void
+ */
+function codepty_create_service_pages() {
+    if (get_option('codepty_content_version', 0) >= 4) {
+        return;
+    }
+
+    $pages = array(
+        array(
+            'title' => 'Una página web que se parezca a tu negocio',
+            'name'  => 'web-adaptada-a-tu-negocio',
+            'ready' => true,
+        ),
+        array(
+            'title' => 'Preparada para que Google la entienda',
+            'name'  => 'pagina-preparada-para-google',
+            'ready' => false,
+        ),
+        array(
+            'title' => 'Cómoda de usar desde el móvil',
+            'name'  => 'pagina-web-para-moviles',
+            'ready' => false,
+        ),
+        array(
+            'title' => 'Contacto directo por WhatsApp',
+            'name'  => 'pagina-web-con-whatsapp',
+            'ready' => false,
+        ),
+        array(
+            'title' => 'Rápida y protegida',
+            'name'  => 'pagina-web-rapida-y-segura',
+            'ready' => false,
+        ),
+        array(
+            'title' => 'Imagen coordinada en web y redes',
+            'name'  => 'imagen-coordinada-web-redes',
+            'ready' => false,
+        ),
+    );
+
+    foreach ($pages as $page) {
+        $existing = get_page_by_path($page['name'], OBJECT, 'page');
+        $page_id  = $existing ? $existing->ID : wp_insert_post(
+            array(
+                'post_title'   => $page['title'],
+                'post_name'    => $page['name'],
+                'post_status'  => 'publish',
+                'post_type'    => 'page',
+                'post_content' => '',
+            )
+        );
+
+        if (!$page['ready'] && $page_id && !is_wp_error($page_id)) {
+            update_post_meta($page_id, '_codepty_noindex', '1');
+        }
+    }
+
+    update_option('codepty_content_version', 4);
+}
+add_action('init', 'codepty_create_service_pages');
+
+/**
+ * codepty_service_document_title - Define el título SEO de la página desarrollada.
+ *
+ * @param string $title Título preparado por WordPress.
+ * @return string
+ */
+function codepty_service_document_title($title) {
+    if (is_page('web-adaptada-a-tu-negocio')) {
+        return 'Una web que se parezca a tu negocio | CodePTY';
+    }
+
+    return $title;
+}
+add_filter('pre_get_document_title', 'codepty_service_document_title');
+
+/**
+ * codepty_service_meta_tags - Imprime descripción y Open Graph básicos.
+ *
+ * @return void
+ */
+function codepty_service_meta_tags() {
+    if (!is_page('web-adaptada-a-tu-negocio')) {
+        return;
+    }
+
+    $title       = 'Una web que se parezca a tu negocio | CodePTY';
+    $description = 'Descubre cómo CodePTY adapta colores, fotografías, textos y enlaces para crear una página web que refleje la identidad real de tu negocio.';
+    $url         = get_permalink();
+    ?>
+    <meta name="description" content="<?php echo esc_attr($description); ?>">
+    <meta property="og:type" content="website">
+    <meta property="og:locale" content="es_PA">
+    <meta property="og:site_name" content="<?php echo esc_attr(get_bloginfo('name')); ?>">
+    <meta property="og:title" content="<?php echo esc_attr($title); ?>">
+    <meta property="og:description" content="<?php echo esc_attr($description); ?>">
+    <meta property="og:url" content="<?php echo esc_url($url); ?>">
+    <?php
+}
+add_action('wp_head', 'codepty_service_meta_tags', 2);
+
+/**
+ * codepty_service_robots - Evita indexar páginas de detalle todavía incompletas.
+ *
+ * @param array $robots Directivas de robots de WordPress.
+ * @return array
+ */
+function codepty_service_robots($robots) {
+    if (is_singular('page') && '1' === get_post_meta(get_queried_object_id(), '_codepty_noindex', true)) {
+        $robots['noindex'] = true;
+        $robots['follow']  = true;
+    }
+
+    return $robots;
+}
+add_filter('wp_robots', 'codepty_service_robots');
+
+/**
+ * codepty_hide_pending_pages_from_sitemap - Excluye del sitemap las páginas sin desarrollar.
+ *
+ * @param array  $args      Argumentos de la consulta del sitemap.
+ * @param string $post_type Tipo de contenido solicitado.
+ * @return array
+ */
+function codepty_hide_pending_pages_from_sitemap($args, $post_type) {
+    if ('page' !== $post_type) {
+        return $args;
+    }
+
+    $args['meta_query'][] = array(
+        'key'     => '_codepty_noindex',
+        'compare' => 'NOT EXISTS',
+    );
+
+    return $args;
+}
+add_filter('wp_sitemaps_posts_query_args', 'codepty_hide_pending_pages_from_sitemap', 10, 2);
+
+/**
+ * Crea la página principal con toda la información del paquete de página web.
+ *
+ * @return void
+ */
+function codepty_create_web_package_page() {
+    if (get_option('codepty_content_version', 0) >= 5) {
+        return;
+    }
+
+    $page = get_page_by_path('pagina-web-para-tu-negocio-en-panama', OBJECT, 'page');
+
+    if (!$page) {
+        $page = wp_insert_post(
+            array(
+                'post_title'   => 'Página web para tu negocio en Panamá',
+                'post_name'    => 'pagina-web-para-tu-negocio-en-panama',
+                'post_status'  => 'publish',
+                'post_type'    => 'page',
+                'post_content' => '',
+            )
+        );
+    }
+
+    if ($page && !is_wp_error($page)) {
+        update_option('codepty_content_version', 5);
+    }
+}
+add_action('init', 'codepty_create_web_package_page');
+
+/**
+ * SEO básico de la página principal del paquete web.
+ *
+ * @param string $title Título preparado por WordPress.
+ * @return string
+ */
+function codepty_web_package_document_title($title) {
+    if (is_page('pagina-web-para-tu-negocio-en-panama')) {
+        return 'Página web para tu negocio en Panamá | CodePTY';
+    }
+
+    return $title;
+}
+add_filter('pre_get_document_title', 'codepty_web_package_document_title');
+
+/**
+ * Descripción y Open Graph de la página del paquete web.
+ *
+ * @return void
+ */
+function codepty_web_package_meta_tags() {
+    if (!is_page('pagina-web-para-tu-negocio-en-panama')) {
+        return;
+    }
+
+    $title       = 'Página web para tu negocio en Panamá | CodePTY';
+    $description = 'Conoce qué incluye el paquete de página web de CodePTY, cómo trabajamos, qué debes aportar, los plazos, la entrega y el control de tu hosting.';
+    ?>
+    <meta name="description" content="<?php echo esc_attr($description); ?>">
+    <meta property="og:type" content="website">
+    <meta property="og:locale" content="es_PA">
+    <meta property="og:site_name" content="<?php echo esc_attr(get_bloginfo('name')); ?>">
+    <meta property="og:title" content="<?php echo esc_attr($title); ?>">
+    <meta property="og:description" content="<?php echo esc_attr($description); ?>">
+    <meta property="og:url" content="<?php echo esc_url(get_permalink()); ?>">
+    <?php
+}
+add_action('wp_head', 'codepty_web_package_meta_tags', 2);
+
+/**
+ * Declara el idioma real de la página larga para lectores de pantalla y buscadores.
+ *
+ * @param string $output Atributos HTML preparados por WordPress.
+ * @return string
+ */
+function codepty_web_package_language_attributes($output) {
+    if (!is_page('pagina-web-para-tu-negocio-en-panama')) {
+        return $output;
+    }
+
+    return (string) preg_replace('/lang=("|\')[^"\']+("|\')/', 'lang="es-PA"', $output, 1);
+}
+add_filter('language_attributes', 'codepty_web_package_language_attributes');

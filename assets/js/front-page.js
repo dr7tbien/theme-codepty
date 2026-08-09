@@ -52,3 +52,17 @@ document.addEventListener('click', (event) => {
         }, 1800);
     });
 });
+
+document.querySelectorAll('.package-index-list details').forEach((item, itemIndex, allItems) => {
+    item.addEventListener('toggle', () => {
+        if (!item.open) {
+            return;
+        }
+
+        allItems.forEach((otherItem) => {
+            if (otherItem !== item) {
+                otherItem.open = false;
+            }
+        });
+    });
+});

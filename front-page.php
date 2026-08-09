@@ -46,11 +46,16 @@
                 </ul>
 
                 <div class="actions">
-                    <a class="button primary" href="#servicios">Más información</a>
+                    <a class="button primary" href="<?php echo esc_url(home_url('/pagina-web-para-tu-negocio-en-panama/')); ?>">Más información</a>
                 </div>
             </article>
 
             <aside class="card contact" id="contacto" aria-label="Formulario de contacto">
+                <?php echo do_shortcode('[codepty_formulario_contacto]'); ?>
+            </aside>
+
+            
+            <!-- aside class="card contact" id="contacto" aria-label="Formulario de contacto">
                 <a class="whatsapp" href="https://wa.me/50760000000">
                     <span class="whatsapp-icon" aria-hidden="true">        
                         <svg class="whatsapp-svg" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
@@ -61,7 +66,6 @@
                     </span>
 
                     <span>
-                        <!-- span>WhatsApp directo</span -->
                         <strong class="w-number">+507 6000-0000</strong>
                     </span>
                 </a>
@@ -112,8 +116,8 @@
                         Enviar consulta
                     </button>
                 </form>
-            </aside>
-
+            </aside -->
+            
         </div>
     </section>
 
@@ -189,53 +193,59 @@
             </header>
 
             <div class="included-grid">
-                <article class="included-item">
+                <a class="included-item" href="<?php echo esc_url(home_url('/web-adaptada-a-tu-negocio/')); ?>">
                     <span class="item-number" aria-hidden="true">01</span>
                     <div>
-                        <h3>Diseño a tu medida</h3>
-                        <p>Adaptamos colores, mensajes e imágenes a la personalidad real de tu negocio.</p>
+                        <h3>Una web que se parece a tu negocio</h3>
+                        <p>Adaptamos colores, textos e imágenes para reflejar la personalidad real de tu negocio.</p>
+                        <span class="included-link">Descubre cómo diseñamos tu página web <span aria-hidden="true">→</span></span>
                     </div>
-                </article>
+                </a>
 
-                <article class="included-item">
+                <a class="included-item" href="<?php echo esc_url(home_url('/pagina-preparada-para-google/')); ?>">
                     <span class="item-number red" aria-hidden="true">02</span>
                     <div>
-                        <h3>Perfecta en el móvil</h3>
-                        <p>Tu página se adapta a teléfonos, tabletas y computadoras sin perder claridad.</p>
+                        <h3>Preparada para que Google la entienda</h3>
+                        <p>Organizamos la estructura, los títulos y la información para que Google pueda interpretar tu página.</p>
+                        <span class="included-link">Conoce cómo preparamos tu web para Google <span aria-hidden="true">→</span></span>
                     </div>
-                </article>
+                </a>
 
-                <article class="included-item">
+                <a class="included-item" href="<?php echo esc_url(home_url('/pagina-web-para-moviles/')); ?>">
                     <span class="item-number" aria-hidden="true">03</span>
                     <div>
-                        <h3>Contacto inmediato</h3>
-                        <p>WhatsApp, teléfono y formulario situados donde el cliente los necesita.</p>
+                        <h3>Cómoda de usar desde el móvil</h3>
+                        <p>Tu página se adapta a teléfonos, tabletas y computadoras sin perder claridad.</p>
+                        <span class="included-link">Mira cómo adaptamos tu web al móvil <span aria-hidden="true">→</span></span>
                     </div>
-                </article>
+                </a>
 
-                <article class="included-item">
+                <a class="included-item" href="<?php echo esc_url(home_url('/pagina-web-con-whatsapp/')); ?>">
                     <span class="item-number red" aria-hidden="true">04</span>
                     <div>
-                        <h3>Preparada para Google</h3>
-                        <p>Estructura, títulos y contenido base organizados para facilitar su posicionamiento.</p>
+                        <h3>Contacto directo por WhatsApp</h3>
+                        <p>Situamos WhatsApp, teléfono y formulario donde tus clientes los necesitan.</p>
+                        <span class="included-link">Descubre cómo conectamos tu web con WhatsApp <span aria-hidden="true">→</span></span>
                     </div>
-                </article>
+                </a>
 
-                <article class="included-item">
+                <a class="included-item" href="<?php echo esc_url(home_url('/pagina-web-rapida-y-segura/')); ?>">
                     <span class="item-number" aria-hidden="true">05</span>
                     <div>
-                        <h3>Rápida y segura</h3>
-                        <p>Código ligero, certificado SSL y buenas prácticas para reducir esperas y riesgos.</p>
+                        <h3>Rápida y protegida</h3>
+                        <p>Usamos código ligero, certificado SSL y buenas prácticas para reducir esperas y riesgos.</p>
+                        <span class="included-link">Conoce cómo cuidamos la rapidez y seguridad <span aria-hidden="true">→</span></span>
                     </div>
-                </article>
+                </a>
 
-                <article class="included-item">
+                <a class="included-item" href="<?php echo esc_url(home_url('/imagen-coordinada-web-redes/')); ?>">
                     <span class="item-number red" aria-hidden="true">06</span>
                     <div>
-                        <h3>Sin cajas negras</h3>
-                        <p>La web es tuya y te explicamos de forma abierta cómo está construida y alojada.</p>
+                        <h3>Imagen coordinada en web y redes</h3>
+                        <p>Tu web, Facebook e Instagram comparten una imagen reconocible y mensajes coherentes.</p>
+                        <span class="included-link">Explora cómo coordinamos tu presencia digital <span aria-hidden="true">→</span></span>
                     </div>
-                </article>
+                </a>
             </div>
         </div>
     </section>

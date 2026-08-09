@@ -131,13 +131,17 @@
     }
 
     .contact {
-        padding: 24px;
+        padding: 42px;
     }
 
     .actions {
         grid-template-columns: repeat(2, minmax(0, 1fr));
         margin-top: auto;
         padding-top: 22px;
+    }
+
+    .offer .actions {
+        grid-template-columns: minmax(0, 1fr);
     }
 
     .contact form {
@@ -160,7 +164,7 @@
     }
 
     .subtitle {
-        font-size: 1.22rem;
+        font-size: var(--font-lead);
     }
 
     .value .grid {
@@ -173,11 +177,11 @@
 }
 
 .feature h3 {
-    font-size: 1.35rem;
+    font-size: var(--font-h3);
 }
 
 .feature p {
-    font-size: 0.98rem;
+    font-size: var(--font-body);
     line-height: 1.55;
 }
 
