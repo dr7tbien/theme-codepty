@@ -1,81 +1,27 @@
 <?php
 /**
- * Guía pública: Crear cuenta profesional de Instagram.
+ * Guía pública: configurar una cuenta profesional de Instagram.
  */
 ?>
-<!doctype html>
-<html <?php language_attributes(); ?>>
-<head>
-    <meta charset="<?php bloginfo('charset'); ?>">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <?php wp_head(); ?>
-</head>
+<!doctype html><html <?php language_attributes(); ?>><head><meta charset="<?php bloginfo('charset'); ?>"><meta name="viewport" content="width=device-width, initial-scale=1"><?php wp_head(); ?></head>
+<body <?php body_class(array('codepty-guide-page','whatsapp-setup-guide','social-setup-guide','instagram-setup-guide')); ?>><?php wp_body_open(); get_template_part('template-parts/site-header'); ?>
+<main id="contenido">
+<section class="guides-hero wa-guide-hero"><div class="container"><nav class="breadcrumbs" aria-label="Migas de pan"><a href="<?php echo esc_url(home_url('/')); ?>">Inicio</a><span aria-hidden="true">/</span><a href="<?php echo esc_url(home_url('/guias/')); ?>">Guías</a><span aria-hidden="true">/</span><span aria-current="page">Instagram</span></nav><p class="eyebrow">Guía práctica · Cuenta profesional</p><h1>Cómo configurar Instagram para tu negocio</h1><p class="subtitle">Prepara una cuenta reconocible, segura y conectada con la web, Facebook y WhatsApp, con formatos visuales y un ritmo de publicación que puedas mantener.</p><div class="wa-guide-meta"><span>Tiempo inicial: 45–90 minutos</span><span>Cuenta profesional: Empresa</span><span>Perfil público del negocio</span></div></div></section>
+<nav class="wa-guide-index" aria-label="Contenido de la guía"><div class="container"><strong>Ir a:</strong><a href="#tipo">Tipo de cuenta</a><a href="#configurar">Configurar</a><a href="#imagenes">Imágenes</a><a href="#perfil">Perfil</a><a href="#seguridad">Seguridad</a><a href="#publicaciones">Publicar</a><a href="#comprobacion">Comprobar</a></div></nav>
 
-<body <?php body_class('codepty-guide-page'); ?>>
-<?php wp_body_open(); ?>
-<?php get_template_part('template-parts/site-header'); ?>
+<section class="wa-guide-section" id="tipo"><div class="container wa-guide-reading"><p class="eyebrow">La cuenta adecuada</p><h2>Elige una cuenta profesional de Empresa</h2><div class="platform-choice"><article class="platform-choice--selected"><span>Recomendada</span><h3>Empresa</h3><p>Para negocios que presentan productos o servicios, reciben consultas y necesitan datos de contacto, estadísticas, publicidad y conexión con Facebook.</p></article><article><span>Personas y marcas personales</span><h3>Creador</h3><p>Orientada a artistas, figuras públicas, productores de contenido e influencers cuya identidad personal es el centro de la cuenta.</p></article><article><span>Uso personal</span><h3>Cuenta personal</h3><p>Para relaciones y publicaciones personales. La cuenta profesional ofrece una separación más clara y herramientas comerciales.</p></article></div><div class="wa-callout"><strong>La cuenta profesional es pública</strong><p>Organiza su contenido pensando en clientes y visitantes. La vida privada del propietario puede mantenerse en una cuenta personal separada.</p></div></div></section>
 
-<main>
-    <section class="guides-hero">
-        <div class="container">
-            <p class="eyebrow">Guía · Cuentas</p>
-            <h1>Cómo crear tu cuenta profesional de Instagram</h1>
-            <p class="subtitle">
-                Una cuenta profesional (o "de empresa") desbloquea estadísticas, botones de
-                contacto y la posibilidad de vincularla a tu página de Facebook.
-            </p>
-        </div>
-    </section>
+<section class="wa-guide-section wa-guide-section--soft" id="configurar"><div class="container wa-guide-reading"><p class="eyebrow">Configuración inicial</p><h2>Crea la cuenta y activa las herramientas profesionales</h2><ol class="wa-numbered"><li><span>1</span><div><h3>Reserva un correo y teléfono del negocio</h3><p>Utiliza datos que la empresa pueda conservar aunque cambie el equipo.</p></div></li><li><span>2</span><div><h3>Elige nombre y usuario reconocibles</h3><p>El nombre muestra la marca; el usuario `@nombre` conviene que sea corto y coherente con Facebook y la web.</p></div></li><li><span>3</span><div><h3>Cambia a cuenta profesional</h3><p>En Configuración y actividad, busca Tipo de cuenta y herramientas → Cambiar a cuenta profesional → Empresa. Los nombres del menú pueden variar por versión.</p></div></li><li><span>4</span><div><h3>Selecciona la categoría</h3><p>Escoge la actividad principal y decide si resulta útil mostrar la categoría públicamente.</p></div></li><li><span>5</span><div><h3>Conecta la Página de Facebook</h3><p>En Editar perfil → Información pública de la empresa → Página, elige la Página oficial. Esto facilita mensajes, anuncios, publicaciones compartidas y herramientas de Meta.</p></div></li></ol><div class="platform-screen ig-screen" role="img" aria-label="Ilustración de la selección de tipo de cuenta profesional"><div class="platform-screen__bar">Tipo de cuenta profesional</div><div class="platform-screen__body"><span>○ Creador</span><strong>● Empresa</strong><small>Para comercios, servicios y organizaciones</small><b>Continuar</b></div></div></div></section>
 
-    <section>
-        <div class="container">
-            <ol class="guide-steps">
-                <li class="card guide-step">
-                    <span class="item-number" aria-hidden="true">01</span>
-                    <div>
-                        <h3>Crea o usa una cuenta de Instagram para el negocio</h3>
-                        <p>Puede ser una cuenta nueva o una que ya tengas, siempre que se use exclusivamente para el negocio.</p>
-                        <div class="image-placeholder">[IMAGEN 1: Pantalla de creación de cuenta de Instagram]</div>
-                    </div>
-                </li>
+<section class="wa-guide-section" id="imagenes"><div class="container wa-guide-reading"><p class="eyebrow">Sistema visual</p><h2>Qué imágenes preparar y para qué sirven</h2><p>Trabaja con originales de calidad y conserva el sujeto y los textos dentro de una zona central segura. Instagram puede adaptar la vista entre perfil, feed, explorar y pantalla completa.</p><div class="media-spec-grid"><article><div class="media-ratio media-ratio--circle">LOGO</div><h3>Foto de perfil</h3><strong>1080 × 1080 px</strong><p>Cuadrada y legible dentro de un círculo. Utiliza PNG para logotipo o texto.</p><small>Objetivo: reconocer la cuenta incluso en tamaño pequeño.</small></article><article><div class="media-ratio media-ratio--square">1:1</div><h3>Publicación cuadrada</h3><strong>1080 × 1080 px</strong><p>Formato flexible para carruseles, productos, trabajos y consejos.</p><small>Objetivo: mantener una cuadrícula ordenada.</small></article><article><div class="media-ratio media-ratio--portrait">4:5</div><h3>Publicación vertical</h3><strong>1080 × 1350 px</strong><p>Ocupa más pantalla en el feed y favorece fotografías de procesos y resultados.</p><small>Objetivo: dar protagonismo visual en móvil.</small></article><article><div class="media-ratio media-ratio--story">9:16</div><h3>Historias y reels</h3><strong>1080 × 1920 px</strong><p>Deja espacio alrededor de textos y acciones. Para reels utiliza al menos 720 px y 30 FPS; 1080 × 1920 es un archivo de trabajo práctico.</p><small>Objetivo: vídeo y contenido breve a pantalla completa.</small></article><article><div class="media-ratio media-ratio--reel">1:1.55</div><h3>Portada de reel</h3><strong>420 × 654 px mínimo</strong><p>Instagram recomienda esta proporción. Prepara una versión mayor proporcional y revisa el recorte de la cuadrícula antes de publicar.</p><small>Objetivo: identificar el reel desde el perfil.</small></article></div><div class="wa-callout"><strong>Utiliza material propio o con licencia verificable</strong><p>Confirma la autorización de las personas y espacios mostrados. Conserva matrículas, documentos, menores y conversaciones fuera del encuadre cuando puedan afectar a la privacidad.</p></div></div></section>
 
-                <li class="card guide-step">
-                    <span class="item-number red" aria-hidden="true">02</span>
-                    <div>
-                        <h3>Cambia a cuenta profesional</h3>
-                        <p>Ve a tu perfil → menú (☰) → Configuración → Cuenta → "Cambiar a cuenta profesional" y elige la categoría "Empresa".</p>
-                        <div class="image-placeholder">[IMAGEN 2: Menú "Cambiar a cuenta profesional"]</div>
-                    </div>
-                </li>
+<section class="wa-guide-section wa-guide-section--dark" id="perfil"><div class="container wa-guide-reading"><p class="eyebrow">Perfil reconocible</p><h2>Explica el negocio en pocos segundos</h2><div class="profile-guide-layout"><div><ul class="fb-data-list"><li><strong>Nombre:</strong> marca y actividad cuando ayuda a identificarla.</li><li><strong>Usuario:</strong> corto, fácil de dictar y coherente con otros canales.</li><li><strong>Biografía:</strong> qué haces, para quién, zona y siguiente paso.</li><li><strong>Enlace:</strong> web oficial; Linktree cuando reúne varios destinos útiles.</li><li><strong>Contacto:</strong> correo, teléfono, WhatsApp o indicaciones según la atención real.</li><li><strong>Categoría:</strong> actividad principal.</li><li><strong>Destacadas:</strong> Servicios, Trabajos, Opiniones, Equipo, Preguntas y Contacto.</li></ul><p>Ejemplo de estructura: <strong>“Reparación y mantenimiento de aire acondicionado · Panamá Centro · Consulta disponibilidad por WhatsApp ↓”</strong></p></div><div class="ig-profile-card"><div class="ig-profile-card__top"><span>LOGO</span><div><strong>Nombre del negocio</strong><small>@nombredeusuario</small></div></div><p>Qué hacemos · A quién ayudamos<br>Zona de servicio<br>Acción principal ↓</p><b>negocio.com</b><div><span>Servicios</span><span>Trabajos</span><span>Opiniones</span><span>Contacto</span></div></div></div></div></section>
 
-                <li class="card guide-step">
-                    <span class="item-number" aria-hidden="true">03</span>
-                    <div>
-                        <h3>Vincúlala con tu página de Facebook</h3>
-                        <p>Durante ese mismo proceso, Instagram te ofrecerá conectar la cuenta con tu página de Facebook de empresa; acéptalo para mantener ambas sincronizadas.</p>
-                        <div class="image-placeholder">[IMAGEN 3: Pantalla de vinculación con Facebook]</div>
-                    </div>
-                </li>
+<section class="wa-guide-section" id="seguridad"><div class="container wa-guide-reading"><p class="eyebrow">Propiedad y continuidad</p><h2>Protege la cuenta y organiza el acceso</h2><div class="wa-security-grid"><article><h3>Datos a nombre del negocio</h3><p>El correo, teléfono y métodos de recuperación permanecen bajo control de la empresa.</p></article><article><h3>Autenticación en dos pasos</h3><p>Actívala desde Centro de cuentas → Contraseña y seguridad. La aplicación autenticadora es el método recomendado por Instagram; guarda también los códigos de recuperación.</p></article><article><h3>Acceso mediante Meta</h3><p>Conecta Instagram a la Página de Facebook y concede a cada persona el acceso apropiado desde las herramientas empresariales de Meta.</p></article><article><h3>Continuidad</h3><p>Mantén dos propietarios responsables en la Página de Facebook conectada y verifica quién controla el correo y el teléfono de Instagram.</p></article><article><h3>Sesiones y aplicaciones</h3><p>Revisa periódicamente dónde se inició sesión y qué aplicaciones tienen acceso. Conserva únicamente conexiones reconocidas y necesarias.</p></article><article><h3>Mensajes y suplantación</h3><p>Comprueba avisos desde la propia aplicación y utiliza los canales oficiales de recuperación. Documenta cuentas que suplanten al negocio.</p></article></div><div class="wa-callout wa-callout--warning"><strong>Las invitaciones se conceden; las contraseñas se conservan</strong><p>Cada persona utiliza su propia identidad y permisos. CodePTY trabaja con el acceso acordado y la empresa mantiene sus credenciales y códigos de seguridad en privado.</p></div></div></section>
 
-                <li class="card guide-step">
-                    <span class="item-number red" aria-hidden="true">04</span>
-                    <div>
-                        <h3>Danos acceso de administrador/colaborador</h3>
-                        <p>Como Instagram gestiona el acceso a través de Facebook, añádenos como administrador o editor desde los "Roles de página" de tu página de Facebook vinculada.</p>
-                    </div>
-                </li>
-            </ol>
+<section class="wa-guide-section wa-guide-section--soft" id="publicaciones"><div class="container wa-guide-reading"><p class="eyebrow">Contenido sostenible</p><h2>Qué publicar y con qué frecuencia</h2><p>Empieza con un ritmo que puedas mantener: por ejemplo, <strong>dos publicaciones semanales y varias historias cuando exista actividad real</strong>. Los datos de Instagram ayudarán después a ajustar formatos, horarios y frecuencia.</p><div class="content-pillar-grid"><article><span>01</span><h3>Trabajos y resultados</h3><p>Casos reales, antes y después y proyectos autorizados.</p></article><article><span>02</span><h3>Proceso</h3><p>Cómo trabajas, materiales, preparación y control de calidad.</p></article><article><span>03</span><h3>Productos o servicios</h3><p>Utilidad, diferencias, condiciones y formas de consultar.</p></article><article><span>04</span><h3>Consejos</h3><p>Respuestas visuales a preguntas frecuentes.</p></article><article><span>05</span><h3>Personas y negocio</h3><p>Equipo, espacio, historia y valores demostrables.</p></article><article><span>06</span><h3>Actualidad práctica</h3><p>Horarios, disponibilidad, eventos o novedades relevantes.</p></article></div><h3>A quién seguir</h3><ul class="service-checklist"><li>Clientes y colaboradores con relaciones públicas apropiadas.</li><li>Proveedores, asociaciones y fuentes fiables del sector.</li><li>Negocios complementarios y comunidad local.</li><li>Referencias visuales útiles para aprender, manteniendo una voz propia.</li></ul><p>Construye relaciones auténticas: responde comentarios y mensajes, acredita colaboraciones y participa cuando puedas aportar algo concreto.</p></div></section>
 
-            <div class="card why-note">
-                <p>Por qué te lo pedimos:</p>
-                <p>Con la cuenta profesional vinculada podemos ayudarte a publicar contenido, revisar estadísticas y mantener coherencia entre tu Instagram, tu Facebook y tu web.</p>
-            </div>
-        </div>
-    </section>
-</main>
+<section class="wa-guide-section wa-guide-section--dark" id="comprobacion"><div class="container wa-guide-reading"><p class="eyebrow">Antes de entregar</p><h2>Lista final de comprobación</h2><div class="final-checklist wa-final-checklist"><label><input type="checkbox">La cuenta profesional está configurada como Empresa.</label><label><input type="checkbox">Correo, teléfono y recuperación pertenecen al negocio.</label><label><input type="checkbox">Nombre, usuario, categoría y biografía son coherentes.</label><label><input type="checkbox">Perfil, publicaciones y portadas se recortan correctamente.</label><label><input type="checkbox">Web, Linktree, WhatsApp y botones de contacto funcionan.</label><label><input type="checkbox">La Página correcta de Facebook está conectada.</label><label><input type="checkbox">2FA, códigos de recuperación y sesiones están revisados.</label><label><input type="checkbox">Destacadas y primeras publicaciones explican el negocio.</label><label><input type="checkbox">Existe una persona responsable de mensajes y comentarios.</label><label><input type="checkbox">El calendario de contenido es sostenible.</label></div><div class="wa-share"><h3>Qué debes compartir con CodePTY</h3><p>Usuario de Instagram, URL del perfil, logotipo original, fotografías y vídeos disponibles, biografía y datos confirmados, enlaces y la invitación de acceso acordada.</p><p><strong>Conserva en privado la contraseña y los códigos de autenticación y recuperación.</strong></p></div></div></section>
 
-<?php get_template_part('template-parts/site-footer'); ?>
-
-<?php wp_footer(); ?>
-</body>
-</html>
+<section class="wa-guide-section"><div class="container wa-guide-reading"><p class="eyebrow">Dudas habituales</p><h2>Preguntas frecuentes</h2><div class="faq-list wa-guide-faq"><details><summary>¿Empresa o Creador?</summary><p>Empresa es la opción apropiada cuando el perfil representa un negocio que ofrece productos o servicios. Creador se adapta mejor a figuras públicas y productores de contenido.</p></details><details><summary>¿Conviene conectar Facebook?</summary><p>Sí cuando ambas cuentas representan el mismo negocio. Facilita el acceso empresarial, la bandeja compartida, anuncios y publicaciones coordinadas.</p></details><details><summary>¿Cuánto hay que publicar?</summary><p>Empieza con dos piezas semanales útiles y ajusta según la capacidad del negocio y los datos reales. La continuidad importa más que el volumen.</p></details><details><summary>¿Todas las publicaciones deben vender?</summary><p>Combina servicio, demostración, información y cercanía. Una cuenta útil responde dudas y demuestra el trabajo antes de pedir una acción.</p></details><details><summary>¿Facebook e Instagram deben ser idénticos?</summary><p>Deben ser reconocibles y coherentes. Adapta encuadres, textos y formatos a la forma de consumir contenido en cada plataforma.</p></details></div></div></section>
+</main><?php get_template_part('template-parts/site-footer'); wp_footer(); ?></body></html>

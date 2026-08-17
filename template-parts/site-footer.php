@@ -26,8 +26,8 @@
 
         <div class="footer-column">
             <h2>Contacto</h2>
-            <a href="tel:+50760000000">+507 6000-0000</a>
-            <a href="https://wa.me/50760000000">WhatsApp</a>
+            <a href="tel:+50766726470">+507 6672 6470</a>
+            <a href="https://wa.me/50766726470">WhatsApp</a>
         </div>
     </div>
 

@@ -60,9 +60,28 @@
 
     <section class="service-section anchor-section" id="incluye">
         <div class="container service-reading">
-            <p class="eyebrow">Qué recibes por $200 - El alcance del paquete</p>
-            <h2>Todo lo necesario para presentar tu negocio y recibir contactos</h2>
-            <p>Preparamos una página web profesional y conectamos los canales incluidos para que tus clientes puedan encontrarte, entender qué haces y ponerse en contacto contigo.</p>
+            <p class="eyebrow">El centro de tu presencia en Internet</p>
+            <h2>Una página web de aterrizaje repleta de contenido</h2>
+            <p>Tu página web será el lugar principal donde explicar el negocio con claridad. Reunirá la información que una persona necesita para entender qué ofreces, decidir si encaja con lo que busca y contactar contigo sin dificultad.</p>
+            <div class="website-content-grid">
+                <article>
+                    <h3>Contenido útil para tus clientes</h3>
+                    <p>Explicamos a qué se dedica la empresa, qué vende o qué servicios presta, a quién se dirige y, cuando corresponda, sus precios y condiciones principales.</p>
+                </article>
+                <article>
+                    <h3>SEO trabajado en toda la página</h3>
+                    <p>Organizamos títulos, textos, enlaces y datos para que los buscadores entiendan el negocio y la página disponga de una base sólida para ganar visibilidad.</p>
+                </article>
+                <article>
+                    <h3>Formas de contacto evidentes</h3>
+                    <p>WhatsApp, teléfono, correo y formulario aparecen en lugares fáciles de reconocer para que el visitante no tenga que buscar cómo comunicarse.</p>
+                </article>
+                <article>
+                    <h3>Todos tus canales conectados</h3>
+                    <p>Enlazamos tus redes sociales y, si procede, tus perfiles, tiendas o productos en plataformas como Amazon, eBay y otros canales relevantes.</p>
+                </article>
+            </div>
+            <h3 class="package-breakdown-title">Además, el paquete conecta y prepara tus canales principales</h3>
             <div class="package-card-grid">
                 <article><span>01</span><h3>Página web profesional</h3><p>Diseño adaptado a tu negocio, estructura clara, textos organizados, imágenes, servicios, datos de contacto y llamadas a la acción.</p></article>
                 <article><span>02</span><h3>Experiencia móvil cuidada</h3><p>La navegación, los paneles, botones y textos se preparan para que la página resulte cómoda en pantallas táctiles, tabletas y computadoras.</p></article>
@@ -169,7 +188,7 @@
         </div>
     </section>
 
-    <section class="closing service-closing" id="contratar"><div class="container"><div class="closing-box"><div><p class="eyebrow">Tu página web por $200</p><h2>Cuéntanos qué necesita tu negocio</h2><p>Revisamos tu caso y confirmamos por escrito alcance, requisitos y calendario antes de empezar.</p></div><div class="closing-actions"><a class="button light" href="#consulta">Consultar el paquete</a><a class="service-home-link" href="<?php echo esc_url(home_url('/')); ?>">Volver al inicio</a></div></div></div></section>
+    <!-- section class="closing service-closing" id="contratar"><div class="container"><div class="closing-box"><div><p class="eyebrow">Tu página web por $200</p><h2>Cuéntanos qué necesita tu negocio</h2><p>Revisamos tu caso y confirmamos por escrito alcance, requisitos y calendario antes de empezar.</p></div><div class="closing-actions"><a class="button light" href="#consulta">Consultar el paquete</a><a class="service-home-link" href="<?php echo esc_url(home_url('/')); ?>">Volver al inicio</a></div></div></div></section -->
 </main>
 
 <?php get_template_part('template-parts/site-footer'); ?>

@@ -56,7 +56,7 @@
 
             
             <!-- aside class="card contact" id="contacto" aria-label="Formulario de contacto">
-                <a class="whatsapp" href="https://wa.me/50760000000">
+                <a class="whatsapp" href="https://wa.me/50766726470">
                     <span class="whatsapp-icon" aria-hidden="true">        
                         <svg class="whatsapp-svg" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
                             <path 
@@ -66,7 +66,7 @@
                     </span>
 
                     <span>
-                        <strong class="w-number">+507 6000-0000</strong>
+                        <strong class="w-number">+507 6672 6470</strong>
                     </span>
                 </a>
 
@@ -128,8 +128,8 @@
                 <p class="eyebrow">Presencia digital seria</p>
 
                 <h2>
-                    Muchos negocios tienen clientes,<br>
-                    pero no una presencia digital seria
+                    Una presencia digital seria<br>
+                    para aumentar los clientes
                 </h2>
 
                 <p class="subtitle center">
@@ -149,7 +149,7 @@
             Una web profesional da credibilidad y te diferencia de negocios que solo usan redes sociales.
         </p>
 
-        <a class="button small primary" href="/post/mas-confianza">Más info</a>
+        <a class="button small primary" href="/mas-confianza">Más info</a>
     </article>
 
     <article class="card feature">
@@ -161,7 +161,7 @@
             Conectamos tu web con WhatsApp, formulario, Facebook, Instagram y Google.
         </p>
 
-        <a class="button small primary" href="/post/mas-contactos">Ver más</a>
+        <a class="button small primary" href="/mas-contactos">Ver más</a>
     </article>
 
     <article class="card feature">
@@ -173,7 +173,7 @@
             Páginas ligeras, móviles y rápidas para que el cliente no se vaya esperando.
         </p>
 
-        <a class="button small primary" href="/post/mas-velocidad">Averigua más</a>
+        <a class="button small primary" href="/mas-velocidad">Averigua más</a>
     </article>
 
 </div>
@@ -364,8 +364,8 @@
                     <p>Cuéntanos qué necesitas y te responderemos con una propuesta clara.</p>
                 </div>
                 <div class="closing-actions">
-                    <a class="button primary" href="#contacto">Pedir cotización</a>
-                    <a class="button light" href="https://wa.me/50760000000">Escribir por WhatsApp</a>
+                    <!-- a class="button primary" href="#contacto">Pedir cotización</a -->
+                    <a class="button light" href="#contacto">Contactar</a>
                 </div>
             </div>
         </div>

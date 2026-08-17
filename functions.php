@@ -7,6 +7,8 @@ if (!defined('ABSPATH')) {
     exit;
 }
 
+require_once get_template_directory() . '/inc/service-landings.php';
+
 /**
  * codepty_theme_setup - Activa las funciones estándar de documento del tema.
  *
@@ -387,8 +389,9 @@ add_action('init', 'codepty_create_service_pages');
  * @return string
  */
 function codepty_service_document_title($title) {
-    if (is_page('web-adaptada-a-tu-negocio')) {
-        return 'Una web que se parezca a tu negocio | CodePTY';
+    $service = codepty_current_service_landing();
+    if ($service) {
+        return $service['title'] . ' | CodePTY';
     }
 
     return $title;
@@ -401,12 +404,13 @@ add_filter('pre_get_document_title', 'codepty_service_document_title');
  * @return void
  */
 function codepty_service_meta_tags() {
-    if (!is_page('web-adaptada-a-tu-negocio')) {
+    $service = codepty_current_service_landing();
+    if (!$service) {
         return;
     }
 
-    $title       = 'Una web que se parezca a tu negocio | CodePTY';
-    $description = 'Descubre cómo CodePTY adapta colores, fotografías, textos y enlaces para crear una página web que refleje la identidad real de tu negocio.';
+    $title       = $service['title'] . ' | CodePTY';
+    $description = wp_strip_all_tags($service['intro']);
     $url         = get_permalink();
     ?>
     <meta name="description" content="<?php echo esc_attr($description); ?>">
@@ -419,6 +423,27 @@ function codepty_service_meta_tags() {
     <?php
 }
 add_action('wp_head', 'codepty_service_meta_tags', 2);
+
+/**
+ * codepty_mark_service_landings_ready - Retira el noindex heredado de las cinco páginas terminadas.
+ *
+ * @return void
+ */
+function codepty_mark_service_landings_ready() {
+    if (get_option('codepty_content_version', 0) >= 6) {
+        return;
+    }
+
+    foreach (codepty_service_landings() as $service) {
+        $page = get_page_by_path($service['slug'], OBJECT, 'page');
+        if ($page instanceof WP_Post) {
+            delete_post_meta($page->ID, '_codepty_noindex');
+        }
+    }
+
+    update_option('codepty_content_version', 6);
+}
+add_action('init', 'codepty_mark_service_landings_ready', 20);
 
 /**
  * codepty_service_robots - Evita indexar páginas de detalle todavía incompletas.
@@ -540,3 +565,182 @@ function codepty_web_package_language_attributes($output) {
     return (string) preg_replace('/lang=("|\')[^"\']+("|\')/', 'lang="es-PA"', $output, 1);
 }
 add_filter('language_attributes', 'codepty_web_package_language_attributes');
+
+/**
+ * codepty_more_trust_document_title - Define el título SEO de Más confianza.
+ *
+ * @param string $title Título preparado por WordPress.
+ * @return string
+ */
+function codepty_more_trust_document_title($title) {
+    if (is_page('mas-confianza')) {
+        return 'Más confianza y oportunidades para tu negocio | CodePTY';
+    }
+
+    return $title;
+}
+add_filter('pre_get_document_title', 'codepty_more_trust_document_title');
+
+/**
+ * codepty_more_trust_meta_tags - Imprime la descripción y Open Graph de Más confianza.
+ *
+ * @return void
+ */
+function codepty_more_trust_meta_tags() {
+    if (!is_page('mas-confianza')) {
+        return;
+    }
+
+    $title       = 'Más confianza y oportunidades para tu negocio | CodePTY';
+    $description = 'Descubre cómo una presencia digital coherente en web, Google, Facebook, Instagram, Linktree y WhatsApp Business mejora la credibilidad de tu negocio.';
+    ?>
+    <meta name="description" content="<?php echo esc_attr($description); ?>">
+    <meta property="og:type" content="website">
+    <meta property="og:locale" content="es_PA">
+    <meta property="og:site_name" content="<?php echo esc_attr(get_bloginfo('name')); ?>">
+    <meta property="og:title" content="<?php echo esc_attr($title); ?>">
+    <meta property="og:description" content="<?php echo esc_attr($description); ?>">
+    <meta property="og:url" content="<?php echo esc_url(get_permalink()); ?>">
+    <?php
+}
+add_action('wp_head', 'codepty_more_trust_meta_tags', 2);
+
+/**
+ * codepty_create_more_contacts_page - Crea la página Más contactos una sola vez.
+ *
+ * @return void
+ */
+function codepty_create_more_contacts_page() {
+    if (get_option('codepty_content_version', 0) >= 6) {
+        return;
+    }
+
+    $page = get_page_by_path('mas-contactos', OBJECT, 'page');
+
+    if (!$page) {
+        $page = wp_insert_post(
+            array(
+                'post_title'   => 'Más contactos',
+                'post_name'    => 'mas-contactos',
+                'post_status'  => 'publish',
+                'post_type'    => 'page',
+                'post_content' => '',
+                'post_excerpt' => 'Más caminos para que nuevos clientes descubran tu negocio, entiendan qué ofrece y contacten desde la web, Google, redes sociales, WhatsApp o formulario.',
+            )
+        );
+    }
+
+    if ($page && !is_wp_error($page)) {
+        update_option('codepty_content_version', 6);
+    }
+}
+add_action('init', 'codepty_create_more_contacts_page');
+
+/**
+ * codepty_more_contacts_document_title - Define el título SEO de Más contactos.
+ *
+ * @param string $title Título preparado por WordPress.
+ * @return string
+ */
+function codepty_more_contacts_document_title($title) {
+    if (is_page('mas-contactos')) {
+        return 'Más contactos para tu negocio en Panamá | CodePTY';
+    }
+
+    return $title;
+}
+add_filter('pre_get_document_title', 'codepty_more_contacts_document_title');
+
+/**
+ * codepty_more_contacts_meta_tags - Imprime la descripción y Open Graph de Más contactos.
+ *
+ * @return void
+ */
+function codepty_more_contacts_meta_tags() {
+    if (!is_page('mas-contactos')) {
+        return;
+    }
+
+    $title       = 'Más contactos para tu negocio en Panamá | CodePTY';
+    $description = 'Descubre cómo conectar web, Google, Facebook, Instagram y WhatsApp para aumentar las oportunidades de recibir contactos para tu negocio en Panamá.';
+    ?>
+    <meta name="description" content="<?php echo esc_attr($description); ?>">
+    <meta property="og:type" content="website">
+    <meta property="og:locale" content="es_PA">
+    <meta property="og:site_name" content="<?php echo esc_attr(get_bloginfo('name')); ?>">
+    <meta property="og:title" content="<?php echo esc_attr($title); ?>">
+    <meta property="og:description" content="<?php echo esc_attr($description); ?>">
+    <meta property="og:url" content="<?php echo esc_url(get_permalink()); ?>">
+    <?php
+}
+add_action('wp_head', 'codepty_more_contacts_meta_tags', 2);
+
+/**
+ * codepty_create_more_speed_page - Crea la página Más velocidad una sola vez.
+ *
+ * @return void
+ */
+function codepty_create_more_speed_page() {
+    if (get_option('codepty_content_version', 0) >= 7) {
+        return;
+    }
+
+    $page = get_page_by_path('mas-velocidad', OBJECT, 'page');
+
+    if (!$page) {
+        $page = wp_insert_post(
+            array(
+                'post_title'   => 'Más velocidad',
+                'post_name'    => 'mas-velocidad',
+                'post_status'  => 'publish',
+                'post_type'    => 'page',
+                'post_content' => '',
+                'post_excerpt' => 'Una web clara, ligera y adaptada al móvil para reducir esperas innecesarias y facilitar el contacto con tu negocio.',
+            )
+        );
+    }
+
+    if ($page && !is_wp_error($page)) {
+        update_option('codepty_content_version', 7);
+    }
+}
+add_action('init', 'codepty_create_more_speed_page');
+
+/**
+ * codepty_more_speed_document_title - Define el título SEO de Más velocidad.
+ *
+ * @param string $title Título preparado por WordPress.
+ * @return string
+ */
+function codepty_more_speed_document_title($title) {
+    if (is_page('mas-velocidad')) {
+        return 'Más velocidad y menos esperas para tu web | CodePTY';
+    }
+
+    return $title;
+}
+add_filter('pre_get_document_title', 'codepty_more_speed_document_title');
+
+/**
+ * codepty_more_speed_meta_tags - Imprime la descripción y Open Graph de Más velocidad.
+ *
+ * @return void
+ */
+function codepty_more_speed_meta_tags() {
+    if (!is_page('mas-velocidad')) {
+        return;
+    }
+
+    $title       = 'Más velocidad y menos esperas para tu web | CodePTY';
+    $description = 'Descubre cómo una página web ligera, adaptada al móvil y bien preparada ayuda a reducir esperas innecesarias y facilita el contacto con tu negocio.';
+    ?>
+    <meta name="description" content="<?php echo esc_attr($description); ?>">
+    <meta property="og:type" content="website">
+    <meta property="og:locale" content="es_PA">
+    <meta property="og:site_name" content="<?php echo esc_attr(get_bloginfo('name')); ?>">
+    <meta property="og:title" content="<?php echo esc_attr($title); ?>">
+    <meta property="og:description" content="<?php echo esc_attr($description); ?>">
+    <meta property="og:url" content="<?php echo esc_url(get_permalink()); ?>">
+    <?php
+}
+add_action('wp_head', 'codepty_more_speed_meta_tags', 2);

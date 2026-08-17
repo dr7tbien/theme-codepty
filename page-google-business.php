@@ -1,83 +1,29 @@
 <?php
 /**
- * Guía pública: Crear y configurar Google Business Profile.
+ * Guía pública: configurar un Perfil de Empresa en Google.
  */
 ?>
-<!doctype html>
-<html <?php language_attributes(); ?>>
-<head>
-    <meta charset="<?php bloginfo('charset'); ?>">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <?php wp_head(); ?>
-</head>
+<!doctype html><html <?php language_attributes(); ?>><head><meta charset="<?php bloginfo('charset'); ?>"><meta name="viewport" content="width=device-width, initial-scale=1"><?php wp_head(); ?></head>
+<body <?php body_class(array('codepty-guide-page','whatsapp-setup-guide','social-setup-guide','google-profile-guide')); ?>><?php wp_body_open(); get_template_part('template-parts/site-header'); ?>
+<main id="contenido">
+<section class="guides-hero wa-guide-hero"><div class="container"><nav class="breadcrumbs" aria-label="Migas de pan"><a href="<?php echo esc_url(home_url('/')); ?>">Inicio</a><span aria-hidden="true">/</span><a href="<?php echo esc_url(home_url('/guias/')); ?>">Guías</a><span aria-hidden="true">/</span><span aria-current="page">Google Business Profile</span></nav><p class="eyebrow">Guía práctica · Google y Maps</p><h1>Cómo configurar tu Perfil de Empresa en Google</h1><p class="subtitle">Presenta información precisa en Google Search y Maps, verifica el negocio, organiza propietarios y gestores y mantén fotos, horarios, servicios y reseñas al día.</p><div class="wa-guide-meta"><span>Servicio gratuito de Google</span><span>Negocios con atención presencial</span><span>Propiedad a nombre del negocio</span></div></div></section>
+<nav class="wa-guide-index" aria-label="Contenido de la guía"><div class="container"><strong>Ir a:</strong><a href="#elegibilidad">Elegibilidad</a><a href="#crear">Crear</a><a href="#verificar">Verificar</a><a href="#datos">Datos</a><a href="#imagenes">Imágenes</a><a href="#accesos">Accesos</a><a href="#actividad">Actividad</a><a href="#comprobacion">Comprobar</a></div></nav>
 
-<body <?php body_class('codepty-guide-page'); ?>>
-<?php wp_body_open(); ?>
-<?php get_template_part('template-parts/site-header'); ?>
+<section class="wa-guide-section" id="elegibilidad"><div class="container wa-guide-reading"><p class="eyebrow">Primero, confirma el tipo de negocio</p><h2>El perfil corresponde a negocios que atienden presencialmente</h2><div class="platform-choice"><article class="platform-choice--selected"><span>Con local</span><h3>Los clientes visitan el negocio</h3><p>Publica una dirección real con señalización y atención durante el horario indicado.</p></article><article class="platform-choice--selected"><span>Área de servicio</span><h3>El negocio visita al cliente</h3><p>Define las zonas atendidas. La dirección puede mantenerse oculta cuando el público recibe el servicio en su ubicación.</p></article><article><span>Caso diferente</span><h3>Actividad exclusivamente online</h3><p>La web y otros canales representan mejor un negocio sin contacto presencial con clientes.</p></article></div><div class="wa-callout"><strong>Busca el negocio antes de crear el perfil</strong><p>Puede existir un perfil generado previamente o administrado por otra persona. Solicita su propiedad y unifica la información para mantener una sola ficha oficial por negocio y ubicación.</p></div></div></section>
 
-<main>
-    <section class="guides-hero">
-        <div class="container">
-            <p class="eyebrow">Guía · Cuentas</p>
-            <h1>Cómo crear y configurar tu Google Business Profile</h1>
-            <p class="subtitle">
-                Google Business Profile (antes "Google Mi Negocio") es el perfil gratuito que
-                hace que tu negocio aparezca en Google Maps y en los resultados de búsqueda
-                locales. Es totalmente gratis y distinto de Google Workspace (el correo de pago).
-            </p>
-        </div>
-    </section>
+<section class="wa-guide-section wa-guide-section--soft" id="crear"><div class="container wa-guide-reading"><p class="eyebrow">Creación correcta</p><h2>Utiliza una cuenta de Google controlada por la empresa</h2><ol class="wa-numbered"><li><span>1</span><div><h3>Elige la cuenta propietaria</h3><p>Utiliza una cuenta estable del negocio, con correo y teléfono de recuperación actualizados.</p></div></li><li><span>2</span><div><h3>Busca el nombre y la ciudad</h3><p>En Google Search o Maps comprueba si ya aparece. Si existe, solicita acceso; si es nuevo, crea el perfil.</p></div></li><li><span>3</span><div><h3>Escribe el nombre real</h3><p>Usa el nombre visible en fachada, documentación y web. Los servicios, ciudad y promociones se explican en sus campos correspondientes.</p></div></li><li><span>4</span><div><h3>Selecciona la categoría principal</h3><p>Elige la categoría más específica que describa la actividad central y añade solo categorías secundarias reales.</p></div></li><li><span>5</span><div><h3>Define local o área de servicio</h3><p>Publica la dirección cuando los clientes son recibidos allí; configura zonas de servicio cuando el equipo se desplaza.</p></div></li></ol><div class="platform-screen google-screen" role="img" aria-label="Ilustración de la creación de un Perfil de Empresa en Google"><div class="platform-screen__bar">Añade tu empresa a Google</div><div class="platform-screen__body"><span>Nombre del negocio</span><span>Categoría principal</span><span>Local o área de servicio</span><b>Continuar</b></div></div></div></section>
 
-    <section>
-        <div class="container">
-            <ol class="guide-steps">
-                <li class="card guide-step">
-                    <span class="item-number" aria-hidden="true">01</span>
-                    <div>
-                        <h3>Entra a Google Business Profile</h3>
-                        <p>Ve a business.google.com con tu cuenta de Google (o crea una nueva exclusiva para el negocio) y elige "Administrar ahora".</p>
-                        <div class="image-placeholder">[IMAGEN 1: Página de inicio de Google Business Profile]</div>
-                    </div>
-                </li>
+<section class="wa-guide-section" id="verificar"><div class="container wa-guide-reading"><p class="eyebrow">Demostrar que representas al negocio</p><h2>Completa el método de verificación que ofrezca Google</h2><p>Google decide los métodos disponibles para cada perfil: pueden incluir vídeo grabado, videollamada, teléfono, correo electrónico o correo postal. Sigue exactamente la opción mostrada en pantalla.</p><div class="verification-grid"><article><h3>Prepara pruebas coherentes</h3><p>Fachada y rótulo, acceso al local, herramientas, vehículo comercial, documentos o sistemas que demuestren que el negocio existe y que la persona está autorizada.</p></article><article><h3>Graba una secuencia continua</h3><p>Cuando Google solicite vídeo, sigue sus indicaciones y muestra ubicación, actividad y capacidad de gestión con información real.</p></article><article><h3>Mantén los datos estables</h3><p>Durante la verificación conserva nombre, categoría y dirección consistentes. Aplica cambios importantes después de completar y revisar el proceso.</p></article></div><div class="wa-callout wa-callout--warning"><strong>El propietario participa directamente en la verificación</strong><p>CodePTY puede orientar y preparar la información; la empresa demuestra su ubicación, actividad y autoridad mediante el método solicitado por Google.</p></div></div></section>
 
-                <li class="card guide-step">
-                    <span class="item-number red" aria-hidden="true">02</span>
-                    <div>
-                        <h3>Crea el perfil de tu negocio</h3>
-                        <p>Ingresa el nombre del negocio, la categoría, si atiendes en un local o a domicilio, la dirección o zona de cobertura, teléfono y sitio web.</p>
-                        <div class="image-placeholder">[IMAGEN 2: Formulario de creación del perfil]</div>
-                    </div>
-                </li>
+<section class="wa-guide-section wa-guide-section--dark" id="datos"><div class="container wa-guide-reading"><p class="eyebrow">Información que ayuda a decidir</p><h2>Completa el perfil con datos precisos</h2><div class="profile-guide-layout"><div><ul class="fb-data-list"><li><strong>Nombre:</strong> denominación real y reconocida.</li><li><strong>Categoría:</strong> actividad principal y secundarias necesarias.</li><li><strong>Dirección o zona:</strong> ubicación exacta o áreas atendidas.</li><li><strong>Horario:</strong> atención normal, festivos y horarios especiales.</li><li><strong>Teléfono:</strong> número directo atendido por el negocio.</li><li><strong>Web:</strong> sitio oficial controlado por la empresa.</li><li><strong>Descripción:</strong> actividad, especialidad, zona y características útiles.</li><li><strong>Servicios o productos:</strong> nombres, descripciones y precios cuando sean estables.</li><li><strong>Atributos:</strong> accesibilidad, opciones de servicio y otros datos verificables.</li><li><strong>Enlaces:</strong> reservas, citas, pedidos u otras acciones disponibles.</li></ul></div><div class="google-profile-card"><div class="google-profile-card__cover">Foto representativa</div><div><strong>Nombre del negocio</strong><span>★ ★ ★ ★ ★</span><small>Categoría · Zona</small></div><nav><span>Web</span><span>Cómo llegar</span><span>Llamar</span></nav><p>Abierto · Cierra a las 17:00</p><p>Descripción clara del negocio y sus servicios.</p></div></div><div class="wa-callout"><strong>Coherencia entre Google, web y redes</strong><p>Nombre, teléfono, dirección, horario y servicios deben describir el mismo negocio. La precisión facilita que el cliente reconozca la ficha y llegue al lugar correcto.</p></div></div></section>
 
-                <li class="card guide-step">
-                    <span class="item-number" aria-hidden="true">03</span>
-                    <div>
-                        <h3>Verifica el negocio</h3>
-                        <p>Google te pedirá verificar la propiedad del negocio, normalmente por código postal, llamada telefónica o video en directo. Sigue las instrucciones que te muestre en pantalla.</p>
-                        <div class="image-placeholder">[IMAGEN 3: Pantalla de verificación del negocio]</div>
-                    </div>
-                </li>
+<section class="wa-guide-section" id="imagenes"><div class="container wa-guide-reading"><p class="eyebrow">Evidencia visual</p><h2>Fotografías reales que ayudan a reconocer el negocio</h2><p>Google recomienda JPG o PNG entre 10 KB y 5 MB, resolución recomendada de <strong>720 × 720 px</strong> y mínima de 250 × 250 px. Aporta originales de 1200 px o más cuando sea posible; CodePTY puede preparar copias adecuadas.</p><div class="media-spec-grid google-media-grid"><article><div class="media-ratio media-ratio--circle">LOGO</div><h3>Logotipo</h3><strong>Aporta: 1200 × 1200 px</strong><p>Cuadrado, centrado y reconocible en tamaños pequeños.</p></article><article><div class="media-ratio media-ratio--wide">PORTADA</div><h3>Portada</h3><strong>Aporta: 1600 × 900 px</strong><p>Imagen horizontal que represente la actividad. Google decide qué fotografía destaca en algunos contextos.</p></article><article><div class="media-ratio media-ratio--square">720</div><h3>Fotos del negocio</h3><strong>Recomendado: 720 × 720 px o superior</strong><p>Enfocadas, bien iluminadas y fieles a la realidad.</p></article><article><div class="media-ratio media-ratio--square">3+</div><h3>Exterior</h3><p>Varias aproximaciones y momentos del día ayudan a encontrar la entrada.</p></article><article><div class="media-ratio media-ratio--square">3+</div><h3>Interior</h3><p>Espacio, ambiente, accesibilidad y zonas relevantes para el cliente.</p></article><article><div class="media-ratio media-ratio--square">3+</div><h3>Trabajo, equipo y productos</h3><p>Demuestran qué ofrece el negocio y cómo trabaja.</p></article><article><div class="media-ratio media-ratio--story">30 s</div><h3>Vídeo</h3><strong>Hasta 30 s · 720p o superior</strong><p>Google admite hasta 75 MB según sus requisitos actuales.</p></article></div><div class="wa-callout"><strong>Representa la realidad del negocio</strong><p>Utiliza fotografías propias, enfocadas y con iluminación natural. Mantén filtros y alteraciones en un nivel que conserve fielmente espacios, productos y resultados.</p></div></div></section>
 
-                <li class="card guide-step">
-                    <span class="item-number red" aria-hidden="true">04</span>
-                    <div>
-                        <h3>Añádenos como gestor</h3>
-                        <p>Ve a "Usuarios" dentro del perfil → "Añadir usuarios" → ingresa el correo de gestión de CodePTY y asígnale el rol de "Gestor".</p>
-                        <div class="image-placeholder">[IMAGEN 4: Pantalla "Usuarios" al añadir un nuevo gestor]</div>
-                    </div>
-                </li>
-            </ol>
+<section class="wa-guide-section wa-guide-section--soft" id="accesos"><div class="container wa-guide-reading"><p class="eyebrow">Propiedad y continuidad</p><h2>Dos propietarios y gestores con acceso individual</h2><div class="wa-security-grid"><article><h3>Propietario principal</h3><p>Cuenta estable de la empresa que conserva la responsabilidad y puede transferir la propiedad principal.</p></article><article><h3>Segundo propietario</h3><p>Persona responsable de máxima confianza que mantiene continuidad si la cuenta principal queda bloqueada o pierde temporalmente el acceso.</p></article><article><h3>Gestores</h3><p>Pueden actualizar información, publicaciones y reseñas sin gestionar usuarios ni eliminar el perfil. Es el acceso apropiado para CodePTY en la mayoría de casos.</p></article><article><h3>Cuentas individuales</h3><p>Cada persona entra con su propia cuenta de Google. Las invitaciones sustituyen el intercambio de contraseñas.</p></article><article><h3>Verificación en dos pasos</h3><p>Actívala en propietarios y gestores, con métodos de recuperación independientes y actualizados.</p></article><article><h3>Revisión trimestral</h3><p>Revisa Personas y acceso, invitaciones pendientes y responsables que continúan vinculados al negocio.</p></article></div><div class="access-flow"><span>Propietario principal</span><b>+</b><span>Segundo propietario</span><b>+</b><span>CodePTY como gestor</span><strong>Continuidad sin compartir contraseñas</strong></div></div></section>
 
-            <div class="card why-note">
-                <p>Por qué te lo pedimos:</p>
-                <p>Un Google Business Profile bien configurado mejora tu visibilidad en Google Maps y en las búsquedas locales, y te da credibilidad frente a clientes potenciales gracias a las reseñas. Como gestores podemos mantenerlo actualizado y conectado a tu web.</p>
-            </div>
-        </div>
-    </section>
-</main>
+<section class="wa-guide-section" id="actividad"><div class="container wa-guide-reading"><p class="eyebrow">Perfil activo y fiable</p><h2>Mantén información, publicaciones y reseñas</h2><div class="content-pillar-grid"><article><span>01</span><h3>Horarios</h3><p>Actualiza festivos, cierres y cambios temporales antes de que el cliente se desplace.</p></article><article><span>02</span><h3>Fotos</h3><p>Añade material reciente cuando cambien el local, el equipo, productos o trabajos.</p></article><article><span>03</span><h3>Publicaciones</h3><p>Comparte actualizaciones, ofertas y eventos con datos completos y enlaces útiles.</p></article><article><span>04</span><h3>Reseñas</h3><p>Invita a clientes reales a compartir su experiencia mediante el enlace oficial y responde con profesionalidad.</p></article><article><span>05</span><h3>Preguntas</h3><p>Responde información práctica y protege los datos personales en espacios públicos.</p></article><article><span>06</span><h3>Estadísticas</h3><p>Observa búsquedas, llamadas, clics y solicitudes de ruta para mejorar información y atención.</p></article></div><p>Revisa el perfil al menos una vez al mes y siempre que cambie un dato esencial. Las publicaciones pueden seguir un ritmo de una o dos al mes cuando exista información útil; Google archiva normalmente las publicaciones antiguas después de seis meses si carecen de un periodo definido.</p><div class="wa-callout"><strong>Las reseñas reflejan experiencias reales</strong><p>Solicítalas de forma neutral a clientes auténticos y responde con agradecimiento, contexto y voluntad de resolver. La misma invitación puede ofrecerse a todos los clientes adecuados.</p></div></div></section>
 
-<?php get_template_part('template-parts/site-footer'); ?>
+<section class="wa-guide-section wa-guide-section--dark" id="comprobacion"><div class="container wa-guide-reading"><p class="eyebrow">Antes de entregar</p><h2>Lista final de comprobación</h2><div class="final-checklist wa-final-checklist"><label><input type="checkbox">El negocio cumple los criterios de atención presencial.</label><label><input type="checkbox">Existe una sola ficha oficial por negocio y ubicación.</label><label><input type="checkbox">La verificación se completó con el propietario.</label><label><input type="checkbox">Nombre, categoría, dirección o zona representan la realidad.</label><label><input type="checkbox">Teléfono, web, horarios, servicios y enlaces están probados.</label><label><input type="checkbox">Logotipo, portada y fotografías reales están publicados.</label><label><input type="checkbox">Dos propietarios conservan acceso y recuperación independientes.</label><label><input type="checkbox">CodePTY tiene acceso de gestor según lo acordado.</label><label><input type="checkbox">2FA y lista de usuarios están revisadas.</label><label><input type="checkbox">Existe un responsable para cambios, publicaciones y reseñas.</label></div><div class="wa-share"><h3>Qué debes compartir con CodePTY</h3><p>URL del perfil, nombre y categoría confirmados, dirección o zonas, horarios, teléfono, web, servicios, fotografías originales y la invitación como gestor.</p><p><strong>Conserva en privado contraseñas, códigos de verificación y métodos de recuperación.</strong></p></div></div></section>
 
-<?php wp_footer(); ?>
-</body>
-</html>
+<section class="wa-guide-section"><div class="container wa-guide-reading"><p class="eyebrow">Dudas habituales</p><h2>Preguntas frecuentes</h2><div class="faq-list wa-guide-faq"><details><summary>¿Google Business Profile tiene coste?</summary><p>El perfil es gratuito. Publicidad, fotografía, gestión profesional u otros servicios tienen costes independientes cuando se contratan.</p></details><details><summary>¿Sirve para un negocio exclusivamente online?</summary><p>Google reserva este perfil para negocios con contacto presencial en un local o en la ubicación del cliente. Una web bien estructurada es la base para actividades exclusivamente online.</p></details><details><summary>¿Puedo ocultar mi dirección?</summary><p>Sí cuando el negocio visita al cliente y configura un área de servicio. Un local que recibe público presenta su dirección real.</p></details><details><summary>¿Por qué necesitamos dos propietarios?</summary><p>El segundo mantiene continuidad y puede gestionar accesos si la cuenta principal queda bloqueada o pierde temporalmente su recuperación.</p></details><details><summary>¿CodePTY debe ser propietario?</summary><p>Para el trabajo habitual basta el rol de gestor. El negocio mantiene la propiedad principal y el segundo propietario.</p></details><details><summary>¿Una buena ficha garantiza aparecer primero?</summary><p>Una ficha precisa ayuda a Google y a los clientes, pero la visibilidad depende también de relevancia, distancia, notoriedad, competencia y decisiones del buscador.</p></details></div></div></section>
+</main><?php get_template_part('template-parts/site-footer'); wp_footer(); ?></body></html>

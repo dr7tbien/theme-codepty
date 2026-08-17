@@ -1,3 +1,4 @@
 <?php
-/** Página pendiente: conexión con WhatsApp. */
-require get_template_directory() . '/template-parts/service-coming-soon.php';
+/** Página comercial: conexión con WhatsApp. */
+$codepty_service_key = 'whatsapp';
+require get_template_directory() . '/template-parts/service-landing.php';

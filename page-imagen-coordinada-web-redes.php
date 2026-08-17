@@ -1,3 +1,4 @@
 <?php
-/** Página pendiente: imagen coordinada en web y redes. */
-require get_template_directory() . '/template-parts/service-coming-soon.php';
+/** Página comercial: imagen coordinada entre web y redes. */
+$codepty_service_key = 'coordinada';
+require get_template_directory() . '/template-parts/service-landing.php';
