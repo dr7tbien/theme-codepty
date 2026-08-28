@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.2.1
+
+- Publicación mínima para comprobar desde WordPress el ciclo de actualización del theme.
+
 ## 0.2.0
 
 - Añadido el actualizador del theme mediante releases públicas estables de GitHub.

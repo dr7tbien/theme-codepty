@@ -35,6 +35,9 @@ La instalación existente en `codepty.com` todavía no contiene este actualizado
 0.2.0 debe desplegarse manualmente una última vez desde hPanel. Las releases posteriores ya
 podrán instalarse desde WordPress.
 
+La versión 0.2.1 es la primera release destinada a comprobar el aviso y la instalación desde
+el panel de WordPress sobre una instalación 0.2.0.
+
 ## Publicar una versión
 
 1. Cambiar manualmente `Version:` en `style.css`.
