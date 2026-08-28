@@ -1,5 +1,15 @@
 # Changelog
 
+## 0.3.0
+
+- Añadida la guía completa de Search Console y Google Analytics con enlaces oficiales,
+  permisos, vinculación, comprobaciones, preguntas frecuentes y capturas pendientes.
+- Convertida «Servicios de Google» en la tarjeta principal de Google dentro de `/guias/`.
+- Conservada Google Business Profile como guía secundaria especializada.
+- Añadida la guía independiente para crear y retirar un administrador de WordPress de
+  CodePTY.
+- Añadidos estilos accesibles para marcadores de capturas y una impresión legible.
+
 ## 0.2.1
 
 - Publicación mínima para comprobar desde WordPress el ciclo de actualización del theme.

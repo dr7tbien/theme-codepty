@@ -3334,3 +3334,57 @@ form h2,
 .whatsapp strong.w-number {
     font-size: var(--font-action);
 }
+
+.guide-shot-placeholder {
+    display: grid;
+    gap: 0.5rem;
+    min-height: 10rem;
+    margin-top: 1.5rem;
+    padding: 2rem;
+    place-content: center;
+    text-align: center;
+    color: var(--color-text-muted, #52606d);
+    background: rgba(255, 255, 255, 0.7);
+    border: 2px dashed currentColor;
+    border-radius: 1rem;
+}
+
+.guide-shot-placeholder strong,
+.guide-shot-placeholder span {
+    display: block;
+}
+
+@media print {
+    .google-services-guide .site-header,
+    .google-services-guide .site-footer,
+    .google-services-guide .wa-guide-index,
+    .google-services-guide .button {
+        display: none !important;
+    }
+
+    .google-services-guide,
+    .google-services-guide .wa-guide-section,
+    .google-services-guide .wa-guide-section--soft,
+    .google-services-guide .wa-guide-section--dark {
+        color: #000 !important;
+        background: #fff !important;
+    }
+
+    .google-services-guide .wa-guide-section {
+        padding: 1.25rem 0;
+        break-inside: auto;
+    }
+
+    .google-services-guide article,
+    .google-services-guide li,
+    .google-services-guide details,
+    .google-services-guide .wa-callout,
+    .google-services-guide .guide-shot-placeholder {
+        break-inside: avoid;
+    }
+
+    .google-services-guide a {
+        color: #000 !important;
+        text-decoration: underline;
+    }
+}

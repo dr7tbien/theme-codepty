@@ -710,6 +710,52 @@ function codepty_create_more_speed_page() {
 add_action('init', 'codepty_create_more_speed_page');
 
 /**
+ * codepty_create_access_guides - Crea las guías de servicios Google y acceso a WordPress.
+ *
+ * @return void
+ */
+function codepty_create_access_guides() {
+    if (get_option('codepty_content_version', 0) >= 8) {
+        return;
+    }
+
+    $guides_page = get_page_by_path('guias', OBJECT, 'page');
+    $guides_id   = $guides_page ? (int) $guides_page->ID : 0;
+    $pages       = array(
+        array(
+            'path'  => 'guias/servicios-google',
+            'title' => 'Crear y configurar los servicios de Google',
+            'name'  => 'servicios-google',
+        ),
+        array(
+            'path'  => 'guias/acceso-wordpress-codepty',
+            'title' => 'Cómo dar acceso de administrador de WordPress a CodePTY',
+            'name'  => 'acceso-wordpress-codepty',
+        ),
+    );
+
+    foreach ($pages as $page) {
+        if (get_page_by_path($page['path'], OBJECT, 'page')) {
+            continue;
+        }
+
+        wp_insert_post(
+            array(
+                'post_title'   => $page['title'],
+                'post_name'    => $page['name'],
+                'post_parent'  => $guides_id,
+                'post_status'  => 'publish',
+                'post_type'    => 'page',
+                'post_content' => '',
+            )
+        );
+    }
+
+    update_option('codepty_content_version', 8);
+}
+add_action('init', 'codepty_create_access_guides');
+
+/**
  * codepty_more_speed_document_title - Define el título SEO de Más velocidad.
  *
  * @param string $title Título preparado por WordPress.

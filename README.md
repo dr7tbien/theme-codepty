@@ -152,6 +152,8 @@ Si no aparece una actualización:
 │   │   # Imprime la descripción y Open Graph de Más contactos.
 │   + codepty_create_more_speed_page()
 │   │   # Crea la página Más velocidad una sola vez.
+│   + codepty_create_access_guides()
+│   │   # Crea las guías de servicios Google y acceso a WordPress.
 │   + codepty_more_speed_document_title()
 │   │   # Define el título SEO de Más velocidad.
 │   + codepty_more_speed_meta_tags()
@@ -184,6 +186,7 @@ Si no aparece una actualización:
 │       + codepty_current_service_landing()
 │       │   # Localiza la configuración comercial de la URL actual.
 ├── index.php
+├── page-acceso-wordpress-codepty.php
 ├── page-facebook.php
 ├── page-google-business.php
 ├── page-guias.php
@@ -199,6 +202,7 @@ Si no aparece una actualización:
 ├── page-pagina-web-rapida-y-segura.php
 ├── page-procedimiento-presencia-web-gpt.php
 ├── page-procedimiento-presencia-web.php
+├── page-servicios-google.php
 ├── page-web-adaptada-a-tu-negocio.php
 ├── page-whatsapp-business.php
 ├── template-parts

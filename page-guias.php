@@ -51,10 +51,10 @@
             </article>
 
             <article class="card guide-card">
-                <span class="guide-status guide-status--ready">Cuentas</span>
-                <h2>Crear tu Google Business Profile</h2>
-                <p>Cómo crear y verificar tu perfil para aparecer en Google Maps y búsquedas locales.</p>
-                <a class="button small primary" href="<?php echo esc_url(home_url('/guias/google-business/')); ?>">Ver guía</a>
+                <span class="guide-status guide-status--ready">Google</span>
+                <h2>Servicios de Google</h2>
+                <p>Configura Google Search Console y Google Analytics, añade administradores y comprueba que ambos servicios funcionan correctamente.</p>
+                <a class="button small primary" href="<?php echo esc_url(home_url('/guias/servicios-google/')); ?>">Ver guía</a>
             </article>
 
             <article class="card guide-card">
@@ -74,6 +74,13 @@
                 <h2>Dominios y correo</h2>
                 <p>Conceptos y procedimientos para gestionar tu dominio y tus cuentas de correo.</p>
             </article>
+            <article class="card guide-card">
+                <span class="guide-status guide-status--ready">Accesos</span>
+                <h2>Dar acceso de WordPress a CodePTY</h2>
+                <p>Cómo crear un usuario administrador independiente y eliminarlo cuando termine el trabajo.</p>
+                <a class="button small primary" href="<?php echo esc_url(home_url('/guias/acceso-wordpress-codepty/')); ?>">Ver guía</a>
+            </article>
+
         </div>
     </section>
 </main>
