@@ -78,6 +78,16 @@ function codepty_add_favicons() {
 add_action('wp_head', 'codepty_add_favicons');
 
 /**
+ * codepty_facebook_domain_verification - Imprime la verificación de dominio de Facebook.
+ *
+ * @return void
+ */
+function codepty_facebook_domain_verification() {
+    echo '<meta name="facebook-domain-verification" content="6z15w3oasmrxujpyomw7cstkgmbfh5" />' . "\n";
+}
+add_action('wp_head', 'codepty_facebook_domain_verification');
+
+/**
  * Crea una sola vez la página inicial de guías del sitio.
  *
  * @return void

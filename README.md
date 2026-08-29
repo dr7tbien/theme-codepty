@@ -104,6 +104,8 @@ Si no aparece una actualización:
 │   │   # Carga los assets principales del theme.
 │   + codepty_add_favicons()
 │   │   # Añade los iconos del sitio cuando WordPress todavía no tiene uno configurado.
+│   + codepty_facebook_domain_verification()
+│   │   # Imprime la verificación de dominio de Facebook.
 │   + codepty_create_guides_page()
 │   │   # Crea una sola vez la página inicial de guías del sitio.
 │   + codepty_create_workflow_pages()

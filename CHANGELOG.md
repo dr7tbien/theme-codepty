@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.3.1
+
+- Añadida la metaetiqueta global de verificación de dominio de Facebook mediante `wp_head`.
+
 ## 0.3.0
 
 - Añadida la guía completa de Search Console y Google Analytics con enlaces oficiales,
