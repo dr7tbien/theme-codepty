@@ -1,5 +1,12 @@
 # Changelog
 
+## 0.4.0
+
+- Rehecha la guía de Facebook con el proceso práctico para crear la Página de Facebook,
+  incorporarla al portfolio comercial e invitar a CodePTY sin compartir contraseñas.
+- Añadidas comprobaciones de propiedad, seguridad, permisos, preguntas frecuentes y
+  marcadores para las capturas reales pendientes.
+
 ## 0.3.1
 
 - Añadida la metaetiqueta global de verificación de dominio de Facebook mediante `wp_head`.

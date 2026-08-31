@@ -31,12 +31,8 @@ Las respuestas válidas se guardan durante seis horas y los fallos durante trein
 Si GitHub falla, el theme continúa funcionando normalmente. La caché se limpia después de
 actualizar y cuando WordPress fuerza una nueva comprobación.
 
-La instalación existente en `codepty.com` todavía no contiene este actualizador. La versión
-0.2.0 debe desplegarse manualmente una última vez desde hPanel. Las releases posteriores ya
-podrán instalarse desde WordPress.
-
-La versión 0.2.1 es la primera release destinada a comprobar el aviso y la instalación desde
-el panel de WordPress sobre una instalación 0.2.0.
+La instalación de `codepty.com` ya contiene el actualizador. Las releases posteriores pueden
+instalarse desde WordPress o mediante WP-CLI.
 
 ## Publicar una versión
 
@@ -49,7 +45,7 @@ el panel de WordPress sobre una instalación 0.2.0.
 7. Crear una release pública estable y adjuntar el ZIP.
 8. Comprobar la actualización desde WordPress.
 
-Ejemplo para la versión 0.2.0:
+Ejemplo orientativo (sustituir `X.Y.Z` por la versión publicada):
 
 ```bash
 cd "/home/torpedo/Local Sites/codepty/app/public/wp-content/themes/codepty"
@@ -57,14 +53,14 @@ php tests/run.php
 find . -name '*.php' -not -path './.git/*' -print0 | xargs -0 -n1 php -l
 git status --short
 git add style.css functions.php inc/class-codepty-theme-updater.php README.md CHANGELOG.md .gitattributes tests/run.php scripts/build-release.sh
-git commit -m "Preparar theme CodePTY 0.2.0"
+git commit -m "Preparar theme CodePTY X.Y.Z"
 git push origin main
-git tag -a v0.2.0 -m "Theme CodePTY 0.2.0"
-git push origin v0.2.0
+git tag -a vX.Y.Z -m "Theme CodePTY X.Y.Z"
+git push origin vX.Y.Z
 ./scripts/build-release.sh /tmp/codepty.zip
 unzip -t /tmp/codepty.zip
-gh release create v0.2.0 /tmp/codepty.zip --repo dr7tbien/theme-codepty --title "Theme CodePTY 0.2.0" --notes "Primera versión con actualizaciones desde WordPress."
-gh release view v0.2.0 --repo dr7tbien/theme-codepty
+gh release create vX.Y.Z /tmp/codepty.zip --repo dr7tbien/theme-codepty --title "Theme CodePTY X.Y.Z" --notes "Resumen de los cambios."
+gh release view vX.Y.Z --repo dr7tbien/theme-codepty
 ```
 
 El ZIP debe contener una sola carpeta raíz:
