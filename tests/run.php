@@ -120,38 +120,44 @@ function reset_state($response)
 
 require dirname(__DIR__) . '/inc/class-codepty-theme-updater.php';
 
-$updater = new CodePTY_Theme_Updater();
-$theme = array('Version' => '0.4.0', 'UpdateURI' => 'https://github.com/dr7tbien/theme-codepty');
+$style_source = file_get_contents(dirname(__DIR__) . '/style.css');
+expect_true(is_string($style_source) && 1 === preg_match('/^Version:\s*(\d+)\.(\d+)\.(\d+)$/m', $style_source, $version_matches), 'style.css debe declarar una versión semántica.');
+$installed_version = $version_matches[1] . '.' . $version_matches[2] . '.' . $version_matches[3];
+$lower_version = '0.0.0';
+$higher_version = $version_matches[1] . '.' . $version_matches[2] . '.' . ((int) $version_matches[3] + 1);
 
-reset_state(response_for(release_data('0.4.0')));
+$updater = new CodePTY_Theme_Updater();
+$theme = array('Version' => $installed_version, 'UpdateURI' => 'https://github.com/dr7tbien/theme-codepty');
+
+reset_state(response_for(release_data($installed_version)));
 expect_true(false === $updater->filter_update(false, $theme, 'codepty', array('es_ES')), 'Una versión igual no debe actualizar.');
 
-reset_state(response_for(release_data('0.3.1')));
+reset_state(response_for(release_data($lower_version)));
 expect_true(false === $updater->filter_update(false, $theme, 'codepty', array()), 'Una versión inferior no debe actualizar.');
 
-reset_state(response_for(release_data('0.4.1')));
+reset_state(response_for(release_data($higher_version)));
 $update = $updater->filter_update(false, $theme, 'codepty', array());
-expect_true(is_array($update) && '0.4.1' === $update['new_version'], 'Una versión superior debe producir actualización.');
+expect_true(is_array($update) && $higher_version === $update['new_version'], 'Una versión superior debe producir actualización.');
 expect_true('codepty' === $update['theme'], 'La actualización debe apuntar al theme codepty.');
 expect_true(1 === $test_requests, 'La primera comprobación debe consultar GitHub una vez.');
 $updater->filter_update(false, $theme, 'codepty', array());
 expect_true(1 === $test_requests, 'La release válida debe reutilizarse desde caché.');
 
-reset_state(response_for(release_data('0.4.1', array('draft' => true))));
+reset_state(response_for(release_data($higher_version, array('draft' => true))));
 expect_true(false === $updater->filter_update(false, $theme, 'codepty', array()), 'Los drafts deben ignorarse.');
 
-reset_state(response_for(release_data('0.4.1', array('prerelease' => true))));
+reset_state(response_for(release_data($higher_version, array('prerelease' => true))));
 expect_true(false === $updater->filter_update(false, $theme, 'codepty', array()), 'Las prereleases deben ignorarse.');
 
-reset_state(response_for(release_data('0.4.1', array('tag_name' => 'release-0.4.1'))));
+reset_state(response_for(release_data($higher_version, array('tag_name' => 'release-' . $higher_version))));
 expect_true(false === $updater->filter_update(false, $theme, 'codepty', array()), 'Las etiquetas no semánticas deben ignorarse.');
 
-$unsafe_asset = release_data('0.4.1');
+$unsafe_asset = release_data($higher_version);
 $unsafe_asset['assets'][0]['browser_download_url'] = 'https://example.com/codepty.zip';
 reset_state(response_for($unsafe_asset));
 expect_true(false === $updater->filter_update(false, $theme, 'codepty', array()), 'Las descargas ajenas a GitHub deben rechazarse.');
 
-$wrong_asset = release_data('0.4.1');
+$wrong_asset = release_data($higher_version);
 $wrong_asset['assets'][0]['name'] = 'source.zip';
 reset_state(response_for($wrong_asset));
 expect_true(false === $updater->filter_update(false, $theme, 'codepty', array()), 'La release debe contener el asset exacto codepty.zip.');
@@ -163,12 +169,12 @@ expect_true(isset($test_cache['codepty_theme_github_release']), 'Los fallos debe
 reset_state(response_for(array('message' => 'Not Found'), 404));
 expect_true(false === $updater->filter_update(false, $theme, 'codepty', array()), 'Un repositorio sin releases no debe producir actualización.');
 
-reset_state(response_for(release_data('0.4.1')));
+reset_state(response_for(release_data($higher_version)));
 $previous = array('version' => '9.9.9');
 expect_true($previous === $updater->filter_update($previous, $theme, 'otro-theme', array()), 'El actualizador no debe modificar otros themes.');
 expect_true(0 === $test_requests, 'Otros themes no deben provocar consultas a GitHub.');
 
-reset_state(response_for(release_data('0.4.1')));
+reset_state(response_for(release_data($higher_version)));
 $updater->filter_update(false, $theme, 'codepty', array());
 $updater->clear_cache_after_upgrade(null, array('action' => 'update', 'type' => 'theme', 'theme' => 'codepty'));
 expect_true(!isset($test_cache['codepty_theme_github_release']), 'La caché debe limpiarse después de actualizar CodePTY.');

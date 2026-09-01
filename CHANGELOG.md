@@ -1,5 +1,9 @@
 # Changelog
 
+
+## 0.4.1
+
+- Añadir publicación automatizada de releases
 ## 0.4.0
 
 - Rehecha la guía de Facebook con el proceso práctico para crear la Página de Facebook,

@@ -36,6 +36,25 @@ instalarse desde WordPress o mediante WP-CLI.
 
 ## Publicar una versión
 
+La publicación habitual puede hacerse con un solo comando desde el repositorio del theme:
+
+```bash
+./scripts/publish-release.sh "Modificada la portada para mejorar el colorido"
+```
+
+El script incrementa automáticamente el número de parche (`0.4.0` → `0.4.1`), añade el
+mensaje al changelog, ejecuta las pruebas, crea el commit, sube `main`, crea el tag y publica
+la release con `codepty.zip`. Antes de actuar muestra los archivos y solicita confirmación.
+
+El script se detiene si la rama local no coincide con `origin/main`, detecta nombres de
+archivos potencialmente privados, fallan las pruebas o ya existe la versión. Requiere que
+GitHub CLI (`gh`) esté autenticado.
+
+En esta primera fase el script no accede a `codepty.com`. La instalación continúa haciéndose
+manualmente desde WordPress o mediante WP-CLI.
+
+### Procedimiento manual
+
 1. Cambiar manualmente `Version:` en `style.css`.
 2. Actualizar `README.md` y `CHANGELOG.md`.
 3. Ejecutar las pruebas y comprobar la sintaxis.
