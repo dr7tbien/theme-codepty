@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.4.4
+
+- Migrado el archivo a /publicaciones/ con enlaces compartidos de menú y breadcrumbs.
+- Añadida redirección 301 desde /posts/ y su paginación, conservando parámetros.
+- Añadido canonical del archivo sin cambiar las URLs individuales.
+
 ## 0.4.3
 
 - Sustituida la terminología visible de Posts y artículos por Publicaciones en menú, archivo, breadcrumbs y paneles móviles, conservando /posts/ y las URLs existentes.

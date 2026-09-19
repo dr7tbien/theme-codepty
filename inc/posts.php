@@ -2,6 +2,37 @@
 /** Posts: shared templates, administrator previews and progressive loading. */
 if (!defined('ABSPATH')) { exit; }
 
+/** Public archive URL, independent of individual post permalinks. */
+function codepty_posts_archive_url() {
+    $id = (int) get_option('page_for_posts');
+    return $id ? get_permalink($id) : home_url('/publicaciones/');
+}
+
+// Keep old archive links working, including pagination and query parameters.
+add_action('template_redirect', function () {
+    $path = wp_parse_url(wp_unslash($_SERVER['REQUEST_URI'] ?? ''), PHP_URL_PATH);
+    $old_path = untrailingslashit(wp_parse_url(home_url('/posts/'), PHP_URL_PATH));
+    if (!preg_match('#^' . preg_quote($old_path, '#') . '(?:/page/([1-9][0-9]*))?/?$#', (string) $path, $matches)) { return; }
+    $target = codepty_posts_archive_url();
+    if (untrailingslashit(wp_parse_url($target, PHP_URL_PATH)) === $old_path) { return; }
+    if (!empty($matches[1]) && (int) $matches[1] > 1) {
+        $target = trailingslashit($target) . user_trailingslashit('page/' . (int) $matches[1], 'paged');
+    }
+    $query = wp_parse_url(wp_unslash($_SERVER['REQUEST_URI'] ?? ''), PHP_URL_QUERY);
+    if ($query) { $target .= '?' . $query; }
+    wp_safe_redirect($target, 301, 'CodePTY');
+    exit;
+}, 1);
+
+// WordPress core emits a canonical for singular pages, but not the posts archive.
+add_action('wp_head', function () {
+    if (!is_home() || is_front_page()) { return; }
+    $url = codepty_posts_archive_url();
+    $paged = max(1, (int) get_query_var('paged'));
+    if ($paged > 1) { $url = trailingslashit($url) . user_trailingslashit('page/' . $paged, 'paged'); }
+    echo '<link rel="canonical" href="' . esc_url($url) . '">' . "\n";
+}, 2);
+
 add_action('after_setup_theme', function () {
     add_theme_support('post-thumbnails');
 });

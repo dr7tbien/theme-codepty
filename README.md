@@ -272,3 +272,13 @@ Los breadcrumbs se incluyen en el header compartido desde 768 px.
 La navegación, el archivo, los breadcrumbs y los paneles muestran «Publicaciones».
 El archivo conserva `/posts/`; el tipo interno `post`, los slugs, el contenido y los
 permalinks no se modifican. El menú móvil admite una segunda fila cuando necesita espacio.
+
+## URL del archivo (0.4.4)
+
+El archivo público es `/publicaciones/`. La página asignada en `page_for_posts`
+debe tener título Publicaciones y slug publicaciones; la portada estática conserva `/`.
+El menú y los breadcrumbs obtienen el enlace de esa página. `/posts/` devuelve un
+301 directo al archivo nuevo, preservando parámetros y paginación. El archivo emite
+su canonical y WordPress incluye la página en su sitemap. Las URLs individuales y
+la estructura global de permalinks permanecen intactas. Esta decisión sustituye la
+conservación de `/posts/` descrita para 0.4.3.
