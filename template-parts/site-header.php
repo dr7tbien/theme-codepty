@@ -19,7 +19,9 @@
         </a>
 
         <nav class="site-navigation" aria-label="Navegación principal">
+            <a href="<?php echo esc_url(home_url('/posts/')); ?>">Posts</a>
             <a href="<?php echo esc_url(home_url('/guias/')); ?>">Guías</a>
         </nav>
     </div>
+    <?php get_template_part('template-parts/breadcrumbs'); ?>
 </header>

@@ -1,0 +1,12 @@
+.codepty-breadcrumbs { border-top: 1px solid #dce6f5; background: #f5f8fc; }
+.codepty-breadcrumbs .codepty-breadcrumbs-list { display: flex; flex-wrap: wrap; gap: .3rem .6rem; padding: .65rem 1rem; list-style: none; font-size: .9rem; line-height: 1.5; }
+.codepty-breadcrumbs-list li { display: inline-flex; align-items: baseline; gap: .6rem; min-width: 0; max-width: 100%; }
+.codepty-breadcrumbs-list a { color: #005293; text-decoration: none; overflow-wrap: anywhere; }
+.codepty-breadcrumbs-list a:hover { text-decoration: underline; }
+.codepty-breadcrumbs-list a:focus-visible { outline: 2px solid #005293; outline-offset: 3px; }
+.codepty-breadcrumbs-list [aria-current] { color: #5f6f89; overflow-wrap: anywhere; }
+.codepty-breadcrumbs-separator { color: #d30831; flex-shrink: 0; }
+/* Match the theme's desktop breakpoint; mobile keeps its original panels. */
+@media (max-width: 767px) {
+    .codepty-breadcrumbs { display: none; }
+}

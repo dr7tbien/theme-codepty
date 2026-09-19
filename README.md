@@ -249,3 +249,20 @@ Si no aparece una actualización:
         + response_for()
         + reset_state()
 <!-- TREE:END -->
+
+
+## Posts y navegación (0.4.2)
+
+El archivo de entradas muestra bloques de 10 y carga automáticamente los siguientes.
+La página Posts debe existir y estar asignada como página de entradas en WordPress;
+la actualización del theme no importa artículos, adjuntos ni opciones de otra instalación.
+Los administradores pueden revisar borradores en el listado; el público solo ve publicados.
+
+El primer bloque Shortcode con `[codepty_formulario_contacto]` se coloca en la
+columna derecha del artículo. El primer bloque Imagen con clase adicional
+`post-heading-image` aparece bajo su título y extracto. Ambos se editan en el post.
+Sin bloque de formulario, la plantilla no crea uno automáticamente.
+
+Posts utiliza Panels PTY en móvil. Actualizar Formularios CodePTY a 0.6.10 o
+superior para activar los formularios importados dentro de paneles.
+Los breadcrumbs se incluyen en el header compartido desde 768 px.

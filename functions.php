@@ -8,6 +8,8 @@ if (!defined('ABSPATH')) {
 }
 
 require_once get_template_directory() . '/inc/service-landings.php';
+require_once get_template_directory() . '/inc/posts.php';
+require_once get_template_directory() . '/inc/breadcrumbs.php';
 require_once get_template_directory() . '/inc/class-codepty-theme-updater.php';
 
 (new CodePTY_Theme_Updater())->register();

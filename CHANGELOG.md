@@ -1,5 +1,14 @@
 # Changelog
 
+## 0.4.2
+
+- Añadidos archivo de posts con scroll infinito y plantilla de artículos.
+- Formulario e imagen de cabecera configurables mediante bloques del artículo.
+- Integrados Posts y artículos en los paneles móviles; requiere Formularios CodePTY 0.6.10 para inicializar el contacto dinámico.
+- Añadidos breadcrumbs globales en escritorio y enlace Posts al menú.
+- El paquete no incluye contenidos, medios ni configuración de la base de datos.
+
+
 
 ## 0.4.1
 
