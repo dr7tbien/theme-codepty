@@ -19,7 +19,7 @@
         </a>
 
         <nav class="site-navigation" aria-label="Navegación principal">
-            <a href="<?php echo esc_url(home_url('/posts/')); ?>">Posts</a>
+            <a href="<?php echo esc_url(home_url('/posts/')); ?>">Publicaciones</a>
             <a href="<?php echo esc_url(home_url('/guias/')); ?>">Guías</a>
         </nav>
     </div>

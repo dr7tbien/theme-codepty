@@ -266,3 +266,9 @@ Sin bloque de formulario, la plantilla no crea uno automáticamente.
 Posts utiliza Panels PTY en móvil. Actualizar Formularios CodePTY a 0.6.10 o
 superior para activar los formularios importados dentro de paneles.
 Los breadcrumbs se incluyen en el header compartido desde 768 px.
+
+## Terminología visible (0.4.3)
+
+La navegación, el archivo, los breadcrumbs y los paneles muestran «Publicaciones».
+El archivo conserva `/posts/`; el tipo interno `post`, los slugs, el contenido y los
+permalinks no se modifican. El menú móvil admite una segunda fila cuando necesita espacio.

@@ -7,9 +7,9 @@ function codepty_breadcrumb_items() {
     if (is_front_page()) { $items[0]['url'] = ''; return $items; }
     $posts_id = (int) get_option('page_for_posts');
     if (is_home()) {
-        $items[] = array('label' => 'Posts', 'url' => '');
+        $items[] = array('label' => 'Publicaciones', 'url' => '');
     } elseif (is_singular('post')) {
-        $items[] = array('label' => 'Posts', 'url' => $posts_id ? get_permalink($posts_id) : home_url('/posts/'));
+        $items[] = array('label' => 'Publicaciones', 'url' => $posts_id ? get_permalink($posts_id) : home_url('/posts/'));
         $items[] = array('label' => get_the_title(get_queried_object_id()), 'url' => '');
     } elseif (is_page()) {
         $id = get_queried_object_id();

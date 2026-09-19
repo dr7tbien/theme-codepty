@@ -3388,3 +3388,9 @@ form h2,
         text-decoration: underline;
     }
 }
+
+/* Keep the longer navigation labels inside narrow mobile headers. */
+@media (max-width: 767px) {
+    .header-inner { flex-wrap: wrap; row-gap: .25rem; }
+    .site-navigation { margin-left: auto; }
+}

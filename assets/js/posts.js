@@ -18,7 +18,7 @@
         if (!entries.some(entry => entry.isIntersecting) || loading || !next) return;
         loading = true;
         grid.setAttribute('aria-busy', 'true');
-        status.textContent = 'Cargando más artículos…';
+        status.textContent = 'Cargando más publicaciones…';
         try {
             const response = await fetch(next, { credentials: 'same-origin', signal: controller.signal });
             if (!response.ok) throw new Error('Unable to load posts');
@@ -32,15 +32,15 @@
             if (next) {
                 const link = document.createElement('a');
                 link.href = next;
-                link.textContent = 'Ver más artículos';
+                link.textContent = 'Ver más publicaciones';
                 nav.appendChild(link);
             }
-            status.textContent = next ? '' : 'Has llegado al último artículo.';
+            status.textContent = next ? '' : 'Has llegado a la última publicación.';
             observer.unobserve(sentinel);
             if (next) observer.observe(sentinel);
         } catch (error) {
             if (error.name === 'AbortError') return;
-            status.textContent = 'No se han podido cargar más artículos. Puedes continuar con el enlace.';
+            status.textContent = 'No se han podido cargar más publicaciones. Puedes continuar con el enlace.';
             nav.hidden = false;
             observer.disconnect();
         } finally {
@@ -59,7 +59,7 @@
             if (panel) {
                 panel.classList.add('codepty-posts');
                 const title = panel.querySelector('.panels-pty-panel__title');
-                const label = archive ? 'Posts' : article.querySelector('h1')?.textContent;
+                const label = archive ? 'Publicaciones' : article.querySelector('h1')?.textContent;
                 if (title && label) { title.textContent = label; panel.setAttribute('aria-label', label); }
             }
         }

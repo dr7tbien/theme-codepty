@@ -42,6 +42,12 @@ add_filter('wp_robots', function ($robots) {
     return $robots;
 });
 
+// Translate the archive tab title without changing the page or its URL.
+add_filter('document_title_parts', function ($parts) {
+    if (is_home()) { $parts['title'] = 'Publicaciones'; }
+    return $parts;
+});
+
 add_filter('pre_get_document_title', function ($title) {
     if (is_singular('post')) {
         $seo_title = get_post_meta(get_queried_object_id(), '_codepty_seo_title', true);

@@ -1,5 +1,10 @@
 # Changelog
 
+## 0.4.3
+
+- Sustituida la terminología visible de Posts y artículos por Publicaciones en menú, archivo, breadcrumbs y paneles móviles, conservando /posts/ y las URLs existentes.
+- Permitido el salto de fila del menú móvil para acomodar la etiqueta Publicaciones.
+
 ## 0.4.2
 
 - Añadidos archivo de posts con scroll infinito y plantilla de artículos.
